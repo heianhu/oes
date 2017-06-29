@@ -139,7 +139,7 @@ if(isset($_REQUEST['stdsubmit']))
               </tr>
                        <tr>
                   <td>City</td>
-                  <td><input type="text" name="city" value="" size="16" onkeyup="isalpha(this)"/></td>
+                  <td><input type="text" name="city" value="" size="16" /></td>
               </tr>
                        <tr>
                   <td>PIN Code</td>

@@ -248,7 +248,7 @@ if (isset($_SESSION['admname'])) {
                         </tr>
                         <tr>
                             <td>测试名</td>
-                            <td><input type="text" name="testname" value="" size="16" onkeyup="isalphanum(this)" /></td>
+                            <td><input type="text" name="testname" value="" size="16" /></td>
                             <td><div class="help"><b>Note:</b><br/>同一科目中测试名必须唯一<br/>.</div></td>
                         </tr>
                         <tr>
@@ -316,7 +316,7 @@ if (isset($_SESSION['admname'])) {
                         </tr>
                         <tr>
                             <td>测试名</td>
-                            <td><input type="hidden" name="testid" value="<?php echo $r['testid']; ?>"/><input type="text" name="testname" value="<?php echo htmlspecialchars_decode($r['testname'], ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)" /></td>
+                            <td><input type="hidden" name="testid" value="<?php echo $r['testid']; ?>"/><input type="text" name="testname" value="<?php echo htmlspecialchars_decode($r['testname'], ENT_QUOTES); ?>" size="16"  /></td>
                             <td><div class="help"><b>Note:</b><br/>同一科目中测试名必须唯一</div></td>
                         </tr>
                         <tr>

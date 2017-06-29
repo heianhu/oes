@@ -189,7 +189,7 @@ if (isset($_SESSION['admname'])) {
                     <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
                         <tr>
                             <td>用户名</td>
-                            <td><input type="text" name="cname" value="" size="16" onkeyup="isalphanum(this)"/></td>
+                            <td><input type="text" name="cname" value="" size="16"/></td>
 
                         </tr>
 
@@ -218,7 +218,7 @@ if (isset($_SESSION['admname'])) {
                         </tr>
                         <tr>
                             <td>城市</td>
-                            <td><input type="text" name="city" value="" size="16" onkeyup="isalpha(this)"/></td>
+                            <td><input type="text" name="city" value="" size="16" /></td>
                         </tr>
                         <tr>
                             <td>PIN码</td>
@@ -241,7 +241,7 @@ if (isset($_SESSION['admname'])) {
                     <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
                         <tr>
                             <td>User Name</td>
-                            <td><input type="text" name="cname" value="<?php echo htmlspecialchars_decode($r['stdname'], ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)"/></td>
+                            <td><input type="text" name="cname" value="<?php echo htmlspecialchars_decode($r['stdname'], ENT_QUOTES); ?>" size="16"/></td>
 
                         </tr>
 
@@ -266,7 +266,7 @@ if (isset($_SESSION['admname'])) {
                         </tr>
                         <tr>
                             <td>City</td>
-                            <td><input type="text" name="city" value="<?php echo htmlspecialchars_decode($r['city'], ENT_QUOTES); ?>" size="16" onkeyup="isalpha(this)"/></td>
+                            <td><input type="text" name="city" value="<?php echo htmlspecialchars_decode($r['city'], ENT_QUOTES); ?>" size="16"/></td>
                         </tr>
                         <tr>
                             <td>PIN Code</td>

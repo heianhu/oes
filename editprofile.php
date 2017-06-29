@@ -152,7 +152,7 @@ else if(isset($_REQUEST['dashboard'])){
               </tr>
                        <tr>
                   <td>城市</td>
-                  <td><input type="text" name="city" value="<?php echo htmlspecialchars_decode($r['city'],ENT_QUOTES); ?>" size="16" onkeyup="isalpha(this)"/></td>
+                  <td><input type="text" name="city" value="<?php echo htmlspecialchars_decode($r['city'],ENT_QUOTES); ?>" size="16" /></td>
               </tr>
                        <tr>
                   <td>PIN码</td>
