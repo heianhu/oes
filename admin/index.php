@@ -80,10 +80,11 @@ Step 2: IF POST array has some varibles then, perform authentication.
          echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
         }
       ?>
+
+      <?php require 'admheader.php' ?>
+
       <div id="container">
-                <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
-            </div>
+               
       <div class="menubar">
         &nbsp;
       </div>
@@ -111,9 +112,9 @@ Step 2: IF POST array has some varibles then, perform authentication.
 
       </div>
 
-      <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
-      </div>
+
+            <?php require '../footer.php' ?>
+      
       </div>
   </body>
 </html>

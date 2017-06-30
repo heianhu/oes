@@ -2,7 +2,7 @@
 <?php
 /*
  * ***************************************************
- * ** Online Examination System                    ***
+ * ** 在线考试系统                    ***
  * **----------------------------------------------***
  * ** License: GNU General Public License V.3      ***
  * ** Author: Manjunath Baddi                      ***
@@ -42,7 +42,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -63,28 +63,28 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from subject where subid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "Too Prevent accidental deletions, system will not allow propagated deletions.<br/><b>Help:</b> If you still want to delete this subject, then first delete the tests that are conducted/dependent on this subject.";
+                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。<br/><b>帮助:</b> 如果仍要删除此主题, 则首先删除对此主题进行/依赖的测试。";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
         }
     }
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "Selected Subject/s are successfully Deleted";
+        $_GLOBALS['message'] = "已成功删除选定的主题";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "First Select the subject/s to be Deleted.";
+        $_GLOBALS['message'] = "首先选择要删除的主题";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     if (empty($_REQUEST['subname']) || empty($_REQUEST['subdesc'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty.Therefore Nothing is Updated";
+        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
     } else {
         $query = "update subject set subname='" . htmlspecialchars($_REQUEST['subname'], ENT_QUOTES) . "', subdesc='" . htmlspecialchars($_REQUEST['subdesc'], ENT_QUOTES) . "'where subid=" . $_REQUEST['subject'] . ";";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Subject Information is Successfully Updated.";
+            $_GLOBALS['message'] = "主题信息已成功更新。";
     }
     closedb();
 }
@@ -134,7 +134,7 @@ if ($_GLOBALS['message']) {
 ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form name="submng" action="submng.php" method="post">
                 <div class="menubar">
@@ -227,7 +227,7 @@ if (isset($_SESSION['admname'])) {
                 // Defualt Mode: Displays the Existing Subject/s, If any.
                 $result = executeQuery("select * from subject order by subid;");
                 if (mysql_num_rows($result) == 0) {
-                    echo "<h3 style=\"color:#0000cc;text-align:center;\">No Subjets Yet..!</h3>";
+                    echo "<h3 style=\"color:#0000cc;text-align:center;\">还没有主题..!</h3>";
                 } else {
                     $i = 0;
 ?>
@@ -262,7 +262,7 @@ if (isset($_SESSION['admname'])) {
                 </div>
             </form>
             <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
             </div>
         </div>
     </body>

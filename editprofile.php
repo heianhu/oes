@@ -95,22 +95,11 @@ else if(isset($_REQUEST['dashboard'])){
             echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
         }
         ?>
-      <div id="container">
-      <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
-            </div>
+      <?php require 'header.php' ?>
+
+      <div top="100px" id="container">
            <form id="editprofile" action="editprofile.php" method="post">
-          <div class="menubar">
-               <ul id="menu">
-                        <?php if(isset($_SESSION['stdname'])) {
-                         // Navigations
-                         ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
-                        <li><input type="submit" value="保存" name="savem" class="subbtn" onclick="validateform('editprofile')" title="Save the changes"/></li>
-                     
-               </ul>
-          </div>
+          
       <div class="page">
           <?php
                        
@@ -160,6 +149,17 @@ else if(isset($_REQUEST['dashboard'])){
               </tr>
 
             </table>
+            <div class="menubar">
+             
+                        <?php if(isset($_SESSION['stdname'])) {
+                         // Navigations
+                         ?>
+                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
+                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                        <li><input type="submit" value="保存" name="savem" class="subbtn" onclick="validateform('editprofile')" title="Save the changes"/></li>
+                     
+               
+          </div>
 <?php
                         closedb();
                         }
@@ -169,9 +169,7 @@ else if(isset($_REQUEST['dashboard'])){
       </div>
 
            </form>
-      <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
-      </div>
+      <?php require 'footer.php' ?>
       </div>
   </body>
 </html>
