@@ -3,7 +3,7 @@
 <?php
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -14,17 +14,17 @@
 error_reporting(0);
 session_start();
         if(!isset($_SESSION['stdname'])){
-            $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+            $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
         }
         else if(isset($_REQUEST['logout'])){
                 unset($_SESSION['stdname']);
-            $_GLOBALS['message']="You are Loggged Out Successfully.";
+            $_GLOBALS['message']="您已成功注销";
             header('Location: index.php');
         }
 ?>
 <html>
     <head>
-        <title>OES-DashBoard</title>
+        <title>主面板</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
        <!--  <link href="exam.css" rel="stylesheet" type="text/css">
         <link href="base.css" rel="stylesheet" type="text/css"> -->
@@ -40,7 +40,7 @@ session_start();
         <div id="container">
            <div class="header">
            
-        
+
             </div>
             <div class="menubar">
 
@@ -63,8 +63,7 @@ session_start();
 
             </div>
 
-          
-      
+
       </div>
             <?php    require 'footer.php'; ?>
 

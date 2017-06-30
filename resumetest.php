@@ -6,7 +6,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -18,7 +18,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout'])) {
     //Log out and redirect login page
@@ -46,7 +46,7 @@ else if(isset($_REQUEST['logout'])) {
                         if($r=mysql_fetch_array($result)) {
                             if(strcmp(htmlspecialchars_decode($r['tcode'],ENT_QUOTES),htmlspecialchars($_REQUEST['tc'],ENT_QUOTES))!=0) {
                                 $display=true;
-                                $_GLOBALS['message']="You have entered an Invalid Test Code.Try again.";
+                                $_GLOBALS['message']="您输入了无效的测试代码。请再次尝试。";
                             }
                             else {
                             //now prepare parameters for Test Conducter and redirect to it.
@@ -66,12 +66,12 @@ else if(isset($_REQUEST['logout'])) {
                         }
                         else {
                             $display=true;
-                            $_GLOBALS['message']="You have entered an Invalid Test Code.Try again.";
+                            $_GLOBALS['message']="您输入了无效的测试代码。请再次尝试。";
                         }
                     }
                     else {
                         $display=true;
-                        $_GLOBALS['message']="Enter the Test Code First!";
+                        $_GLOBALS['message']="先输入测试码！";
                     }
                 }
 
@@ -80,7 +80,7 @@ else if(isset($_REQUEST['logout'])) {
 
 <html>
     <head>
-        <title>OES-Resume Test</title>
+        <title>恢复测试</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -99,6 +99,7 @@ if($_GLOBALS['message']) {
             <?php require 'header.php' ?>
 
         <div id="container">
+
             <form id="summary" action="resumetest.php" method="post">
                 <div class="menubar">
                     <ul id="menu">
@@ -128,9 +129,9 @@ if($_GLOBALS['message']) {
                             ?>
                     <table cellpadding="30" cellspacing="10">
                         <tr>
-                            <td>Enter Test Code</td>
+                            <td>输入测试码</td>
                             <td><input type="text" tabindex="1" name="tc" value="" size="16" /></td>
-                            <td><div class="help"><b>Note:</b><br/>Quickly enter Test Code and<br/> press Resume button to utilize<br/> Remaining time.</div></td>
+                            <td><div class="help"><b>注意:</b><br/>快速输入测试码<br/>后按继续按钮以使用剩余时间</div></td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -193,6 +194,7 @@ if($_GLOBALS['message']) {
 
             </form>
            <?php require 'footer.php' ?>
+
   </body>
 </html>
 

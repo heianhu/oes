@@ -182,7 +182,7 @@ if (isset($_SESSION['tcname'])) {
                     <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
                         <tr>
                             <td>Subject Name</td>
-                            <td><input type="text" name="subname" value="" size="16" onkeyup="isalphanum(this)" onblur="if(this.value==''){alert('Subject Name is Empty');this.focus();this.value='';}"/></td>
+                            <td><input type="text" name="subname" value="" size="16" onblur="if(this.value==''){alert('Subject Name is Empty');this.focus();this.value='';}"/></td>
 
                         </tr>
 
@@ -209,7 +209,7 @@ if (isset($_SESSION['tcname'])) {
                     <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
                         <tr>
                             <td>Subject Name</td>
-                            <td><input type="text" name="subname" value="<?php echo htmlspecialchars_decode($r['subname'], ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)"/></td>
+                            <td><input type="text" name="subname" value="<?php echo htmlspecialchars_decode($r['subname'], ENT_QUOTES); ?>" size="16"/></td>
 
                         </tr>
                         <tr>

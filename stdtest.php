@@ -4,7 +4,7 @@
 <?php
 /*
  * **************************************************
- * ** Online Examination System                   ***
+ * ** 在线考试系统                   ***
  * **---------------------------------------------***
  * ** License: GNU General Public License V.3     ***
  * ** Author: Manjunath Baddi                     ***
@@ -16,7 +16,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if (!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_SESSION['starttime'])) {
     header('Location: testconducter.php');
 } else if (isset($_REQUEST['logout'])) {
@@ -35,14 +35,14 @@ if (!isset($_SESSION['stdname'])) {
         if ($r = mysql_fetch_array($result)) {
             if (strcmp(htmlspecialchars_decode($r['tcode'], ENT_QUOTES), htmlspecialchars($_REQUEST['tc'], ENT_QUOTES)) != 0) {
                 $display = true;
-                $_GLOBALS['message'] = "You have entered an Invalid Test Code.Try again.";
+                $_GLOBALS['message'] = "您输入了无效的测试代码。请再次尝试。";
             } else {
                 //now prepare parameters for Test Conducter and redirect to it.
                 //first step: Insert the questions into table
 
                 $result = executeQuery("select * from question where testid=" . $_SESSION['testid'] . " order by qnid;");
                 if (mysql_num_rows($result) == 0) {
-                    $_GLOBALS['message'] = "Tests questions cannot be selected.Please Try after some time!";
+                    $_GLOBALS['message'] = "无法选择测试题。请过一段时间尝试！";
                 } else {
                   //  executeQuery("COMMIT");
                     $error = false;
@@ -57,7 +57,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                     else {
                         while ($r = mysql_fetch_array($result)) {
                             if (!executeQuery("insert into studentquestion values(" . $_SESSION['stdid'] . "," . $_SESSION['testid'] . "," . $r['qnid'] . ",'unanswered',NULL)")) {
-                                $_GLOBALS['message'] = "Failure while preparing questions for you.Try again";
+                                $_GLOBALS['message'] = "在为你准备问题时失败。请再试一次。";
                                 $error = true;
                             }
                         }
@@ -80,11 +80,11 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
             }
         } else {
             $display = true;
-            $_GLOBALS['message'] = "You have entered an Invalid Test Code.Try again.";
+            $_GLOBALS['message'] = "您输入了无效的测试代码。请再次尝试。";
         }
     } else {
         $display = true;
-        $_GLOBALS['message'] = "Enter the Test Code First!";
+        $_GLOBALS['message'] = "先输入测试码！";
     }
 } else if (isset($_REQUEST['testcode'])) {
     //test code preparation
@@ -95,13 +95,13 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
 } else if (isset($_REQUEST['savem'])) {
     //updating the modified values
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty.Therefore Nothing is Updated";
+        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
     } else {
         $query = "update student set stdname='" . htmlspecialchars($_REQUEST['cname'], ENT_QUOTES) . "', stdpassword=ENCODE('" . htmlspecialchars($_REQUEST['password'], ENT_QUOTES) . "','oespass'),emailid='" . htmlspecialchars($_REQUEST['email'], ENT_QUOTES) . "',contactno='" . htmlspecialchars($_REQUEST['contactno'], ENT_QUOTES) . "',address='" . htmlspecialchars($_REQUEST['address'], ENT_QUOTES) . "',city='" . htmlspecialchars($_REQUEST['city'], ENT_QUOTES) . "',pincode='" . htmlspecialchars($_REQUEST['pin'], ENT_QUOTES) . "' where stdid='" . $_REQUEST['student'] . "';";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Your Profile is Successfully Updated.";
+            $_GLOBALS['message'] = "您的个人资料已成功更新.";
     }
     closedb();
 }
@@ -110,7 +110,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>OES-Offered Tests</title>
+        <title>提供的测试</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -127,7 +127,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
         ?>
         <?php require 'header.php' ?>
         <div id="container">
-            
+
             <form id="stdtest" action="stdtest.php" method="post">
                 <div class="menubar">
                     <ul id="menu">
@@ -207,7 +207,9 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                 </div>
 
             </form>
+
             <?php require 'footer.php' ?>
+
         </div>
     </body>
 </html>

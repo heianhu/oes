@@ -3,7 +3,7 @@
 <?php
 /*
 ****************************************************
-*** Online Examination System                    ***
+*** 在线考试系统                    ***
 ***----------------------------------------------***
 *** License: GNU General Public License V.3      ***
 *** Author: Manjunath Baddi                      ***
@@ -48,10 +48,10 @@ if(isset($_REQUEST['stdsubmit']))
     // $_GLOBALS['message']=$newstd;
     if(empty($_REQUEST['cname'])||empty ($_REQUEST['password'])||empty ($_REQUEST['email']))
     {
-         $_GLOBALS['message']="Some of the required Fields are Empty";
+         $_GLOBALS['message']="一些必填字段为空";
     }else if(mysql_num_rows($result)>0)
     {
-        $_GLOBALS['message']="Sorry the User Name is Not Available Try with Some Other name.";
+        $_GLOBALS['message']="对不起，用户名不可用，请尝试其他名称。";
     }
     else
     {
@@ -61,7 +61,7 @@ if(isset($_REQUEST['stdsubmit']))
      else
      {
         $success=true;
-        $_GLOBALS['message']="Successfully Your Account is Created.Click <a href=\"index.php\">Here</a> to LogIn";
+        $_GLOBALS['message']="成功创建您的帐户。点击<a href=\"index.php\">此处</a>登录";
        // header('Location: index.php');
      }
     }
@@ -73,7 +73,7 @@ if(isset($_REQUEST['stdsubmit']))
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>OES-Registration</title>
+    <title>注册</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="oes.css"/>
     <script type="text/javascript" src="validate.js" ></script>
@@ -87,12 +87,12 @@ if(isset($_REQUEST['stdsubmit']))
         ?>
       <div id="container">
      <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
           <div class="menubar">
               <?php if(!$success): ?>
 
-              <h2 style="text-align:center;color:#ffffff;">New User Registration</h2>
+              <h2 style="text-align:center;color:#ffffff;">新用户注册</h2>
               <?php endif; ?>
              
           </div>
@@ -100,7 +100,7 @@ if(isset($_REQUEST['stdsubmit']))
           <?php
           if($success)
           {
-                echo "<h2 style=\"text-align:center;color:#0000ff;\">Thank You For Registering with Online Examination System.<br/><a href=\"index.php\">Login Now</a></h2>";
+                echo "<h2 style=\"text-align:center;color:#0000ff;\">感谢您注册在线考试系统。<br/><a href=\"index.php\">立即登录</a></h2>";
           }
           else
           {
@@ -109,40 +109,40 @@ if(isset($_REQUEST['stdsubmit']))
           <form id="admloginform"  action="register.php" method="post" onsubmit="return validateform('admloginform');">
                    <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
               <tr>
-                  <td>User Name</td>
+                  <td>用户名</td>
                   <td><input type="text" name="cname" value="" size="16" onkeyup="isalphanum(this)"/></td>
 
               </tr>
 
                       <tr>
-                  <td>Password</td>
+                  <td>密码</td>
                   <td><input type="password" name="password" value="" size="16" onkeyup="isalphanum(this)" /></td>
 
               </tr>
                       <tr>
-                  <td>Re-type Password</td>
+                  <td>重复密码</td>
                   <td><input type="password" name="repass" value="" size="16" onkeyup="isalphanum(this)" /></td>
 
               </tr>
               <tr>
-                  <td>E-mail ID</td>
+                  <td>邮箱</td>
                   <td><input type="text" name="email" value="" size="16" /></td>
               </tr>
                        <tr>
-                  <td>Contact No</td>
+                  <td>联系号码</td>
                   <td><input type="text" name="contactno" value="" size="16" onkeyup="isnum(this)"/></td>
               </tr>
 
                   <tr>
-                  <td>Address</td>
+                  <td>地址</td>
                   <td><textarea name="address" cols="20" rows="3"></textarea></td>
               </tr>
                        <tr>
-                  <td>City</td>
-                  <td><input type="text" name="city" value="" size="16" onkeyup="isalpha(this)"/></td>
+                  <td>城市</td>
+                  <td><input type="text" name="city" value="" size="16" /></td>
               </tr>
                        <tr>
-                  <td>PIN Code</td>
+                  <td>PIN码</td>
                   <td><input type="text" name="pin" value="" size="16" onkeyup="isnum(this)" /></td>
               </tr>
                        <tr>
@@ -155,7 +155,7 @@ if(isset($_REQUEST['stdsubmit']))
       </div>
 
 <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

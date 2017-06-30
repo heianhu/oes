@@ -4,7 +4,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -16,7 +16,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -59,7 +59,7 @@ else if(isset($_REQUEST['dashboard'])){
 
 <html>
   <head>
-    <title>OES-Summary</title>
+    <title>摘要</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
     <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -83,7 +83,7 @@ else if(isset($_REQUEST['dashboard'])){
                     }
                     else
                     {
-                        $_GLOBALS['message']="Try Again";
+                        $_GLOBALS['message']="请再次尝试";
                     }
                     closedb();
                 }
@@ -107,7 +107,7 @@ else if(isset($_REQUEST['dashboard'])){
         ?>
       <div id="container">
      <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
            <form id="summary" action="summary.php" method="post">
           <div class="menubar">
@@ -128,7 +128,7 @@ else if(isset($_REQUEST['dashboard'])){
 
                         $result=executeQuery("select * from studentquestion where testid=".$_SESSION['testid']." and stdid=".$_SESSION['stdid']." order by qnid ;");
                         if(mysql_num_rows($result)==0) {
-                          echo"<h3 style=\"color:#0000cc;text-align:center;\">Please Try Again.</h3>";
+                          echo"<h3 style=\"color:#0000cc;text-align:center;\">请再次尝试</h3>";
                         }
                         else
                         {
@@ -136,9 +136,9 @@ else if(isset($_REQUEST['dashboard'])){
                  ?>
           <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>Question No</th>
-                            <th>Status</th>
-                            <th>Change Your Answer</th>
+                            <th>问题号</th>
+                            <th>状态</th>
+                            <th>更改你的答案</th>
                        </tr>
         <?php
                         while($r=mysql_fetch_array($result)) {
@@ -177,7 +177,7 @@ else if(isset($_REQUEST['dashboard'])){
 
            </form>
     <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

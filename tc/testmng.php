@@ -248,7 +248,7 @@ if (isset($_SESSION['tcname'])) {
                         </tr>
                         <tr>
                             <td>Test Name</td>
-                            <td><input type="text" name="testname" value="" size="16" onkeyup="isalphanum(this)" /></td>
+                            <td><input type="text" name="testname" value="" size="16" /></td>
                             <td><div class="help"><b>Note:</b><br/>Test Name must be Unique<br/> in order to identify different<br/> tests on same subject.</div></td>
                         </tr>
                         <tr>
@@ -316,7 +316,7 @@ if (isset($_SESSION['tcname'])) {
                         </tr>
                         <tr>
                             <td>Test Name</td>
-                            <td><input type="hidden" name="testid" value="<?php echo $r['testid']; ?>"/><input type="text" name="testname" value="<?php echo htmlspecialchars_decode($r['testname'], ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)" /></td>
+                            <td><input type="hidden" name="testid" value="<?php echo $r['testid']; ?>"/><input type="text" name="testname" value="<?php echo htmlspecialchars_decode($r['testname'], ENT_QUOTES); ?>" size="16" /></td>
                             <td><div class="help"><b>Note:</b><br/>Test Name must be Unique<br/> in order to identify different<br/> tests on same subject.</div></td>
                         </tr>
                         <tr>

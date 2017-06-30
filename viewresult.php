@@ -5,7 +5,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -17,7 +17,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout'])) {
     //Log out and redirect login page
@@ -43,7 +43,7 @@ else if(isset($_REQUEST['logout'])) {
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>OES-View Result</title>
+        <title>查看结果</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -157,7 +157,7 @@ else if(isset($_REQUEST['logout'])) {
                                     ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>Q. No</th>
+                            <th>问题号</th>
                             <th>题目</th>
                             <th>正确答案</th>
                             <th>你的选择</th>
@@ -277,6 +277,7 @@ else if(isset($_REQUEST['logout'])) {
 
             </form>
             <?php require 'footer.php' ?>
+
   </body>
 </html>
 

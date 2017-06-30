@@ -2,7 +2,7 @@
 <?php
 /*
  * **************************************************
- * ** Online Examination System                   ***
+ * ** 在线考试系统                   ***
  * **---------------------------------------------***
  * ** License: GNU General Public License V.3     ***
  * ** Author: Manjunath Baddi                     ***
@@ -15,7 +15,7 @@ session_start();
 include_once 'oesdb.php';
 $final = false;
 if (!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_REQUEST['logout'])) {
     //Log out and redirect login page
     unset($_SESSION['stdname']);
@@ -92,7 +92,7 @@ header("Cache-Control: no-cache, must-revalidate");
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>OES-Practice</title>
+        <title>练习测试</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -128,7 +128,7 @@ if (!isset($_REQUEST['finalsumbit']) && isset($_SESSION['starttime'])) {
 
     </head>
     <body >
-        <noscript><h2>For the proper Functionality, You must use Javascript enabled Browser</h2></noscript>
+        <noscript><h2>您必须使用支持Javascript的浏览器才能使用正确的功能</h2></noscript>
 <?php
 if ($_GLOBALS['message']) {
     echo "<div class=\"message\">" . $_GLOBALS['message'] . "</div>";
@@ -136,7 +136,7 @@ if ($_GLOBALS['message']) {
 ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统</h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form id="practicetest" action="practicetest.php" method="post">
                 <div class="menubar">
@@ -376,7 +376,7 @@ if (isset($_SESSION['stdname'])) {
 
             </form>
             <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
             </div>
         </div>
     </body>

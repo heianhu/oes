@@ -5,7 +5,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -18,7 +18,7 @@ session_start();
 include_once 'oesdb.php';
 $final=false;
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -63,7 +63,7 @@ else if(isset($_REQUEST['dashboard'])){
                 if(!executeQuery($query))
                 {
                 // to do
-                $_GLOBALS['message']="Your previous answer is not updated.Please answer once again";
+                $_GLOBALS['message']="您以前的答案没有更新，请再次回答。";
                 }
                 closedb();
             }
@@ -119,7 +119,7 @@ else if(isset($_REQUEST['dashboard'])){
                 if(!executeQuery($query))
                 {
                 // to do
-                $_GLOBALS['message']="Your previous answer is not updated.Please answer once again";
+                $_GLOBALS['message']="您以前的答案没有更新，请再次回答。";
                 }
                 closedb();
             }
@@ -182,7 +182,7 @@ header("Cache-Control: no-cache, must-revalidate");
 
     </head>
   <body >
-      <noscript><h2>For the proper Functionality, You must use Javascript enabled Browser</h2></noscript>
+      <noscript><h2>您必须使用支持Javascript的浏览器才能使用正确的功能</h2></noscript>
        <?php
 
         if($_GLOBALS['message']) {
@@ -191,11 +191,11 @@ header("Cache-Control: no-cache, must-revalidate");
         ?>
       <div id="container">
       <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
            <form id="testconducter" action="testconducter.php" method="post">
           <div class="menubar" style="text-align:center;">
-              <h2 style="font-family:helvetica,sans-serif;font-weight:bolder;font-size:120%;color:#f50000;padding-top:0.3em;letter-spacing:1px;">OES:Test Conducter</h2>
+              <h2 style="font-family:helvetica,sans-serif;font-weight:bolder;font-size:120%;color:#f50000;padding-top:0.3em;letter-spacing:1px;">测试导体</h2>
           </div>
       <div class="page">
           <?php
@@ -212,8 +212,8 @@ header("Cache-Control: no-cache, must-revalidate");
               <table border="0" width="100%" class="ntab">
                   <tr>
                       <th style="width:40%;"><h3><span id="timer" class="timerclass"></span></h3></th>
-                      <th style="width:40%;"><h4 style="color: #af0a36;">Question No: <?php echo $_SESSION['qn']; ?> </h4></th>
-                      <th style="width:20%;"><h4 style="color: #af0a36;"><input type="checkbox" name="markreview" value="mark"> Mark for Review</input></h4></th>
+                      <th style="width:40%;"><h4 style="color: #af0a36;">问题号: <?php echo $_SESSION['qn']; ?> </h4></th>
+                      <th style="width:20%;"><h4 style="color: #af0a36;"><input type="checkbox" name="markreview" value="mark"> 标记以供审阅</input></h4></th>
                   </tr>
               </table>
              <textarea cols="100" rows="8" name="question" readonly style="width:96.8%;text-align:left;margin-left:2%;margin-top:2px;font-size:120%;font-weight:bold;margin-bottom:0;color:#0000ff;padding:2px 2px 2px 2px;"><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea>
@@ -242,7 +242,7 @@ header("Cache-Control: no-cache, must-revalidate");
 
            </form>
      <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

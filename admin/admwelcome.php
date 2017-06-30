@@ -2,7 +2,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -28,11 +28,11 @@ error_reporting(0);
 /********************* Step 1 *****************************/
 session_start();
         if(!isset($_SESSION['admname'])){
-            $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+            $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
         }
         else if(isset($_REQUEST['logout'])){
            unset($_SESSION['admname']);
-            $_GLOBALS['message']="You are Loggged Out Successfully.";
+            $_GLOBALS['message']="您已成功注销";
             header('Location: index.php');
         }
 ?>
@@ -74,7 +74,9 @@ session_start();
 
             </div>
 
+
           <?php require '../footer.php' ?>
+
       </div>
   </body>
 </html>

@@ -2,7 +2,7 @@
 <?php
 /*
  * ***************************************************
- * ** Online Examination System                    ***
+ * ** 在线考试系统                    ***
  * **----------------------------------------------***
  * ** License: GNU General Public License V.3      ***
  * ** Author: Manjunath Baddi                      ***
@@ -42,7 +42,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname']) || !isset($_SESSION['testqn'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -76,24 +76,24 @@ if (!isset($_SESSION['admname']) || !isset($_SESSION['testqn'])) {
 
     //
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "Selected Questions are successfully Deleted";
+        $_GLOBALS['message'] = "已成功删除所选问题";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "First Select the Questions to be Deleted.";
+        $_GLOBALS['message'] = "首先选择要删除的问题。";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     // $_GLOBALS['message']=$newstd;
     if (strcmp($_REQUEST['correctans'], "<Choose the Correct Answer>") == 0 || empty($_REQUEST['question']) || empty($_REQUEST['optiona']) || empty($_REQUEST['optionb']) || empty($_REQUEST['optionc']) || empty($_REQUEST['optiond']) || empty($_REQUEST['marks'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty";
+        $_GLOBALS['message'] = "某些必填字段为空";
     } else if (strcasecmp($_REQUEST['optiona'], $_REQUEST['optionb']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionc'], $_REQUEST['optiond']) == 0) {
-        $_GLOBALS['message'] = "Two or more options are representing same answers.Verify Once again";
+        $_GLOBALS['message'] = "两个或多个选项表示相同的答案。再次验证";
     } else {
         $query = "update question set question='" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "',optiona='" . htmlspecialchars($_REQUEST['optiona'],ENT_QUOTES) . "',optionb='" . htmlspecialchars($_REQUEST['optionb'],ENT_QUOTES) . "',optionc='" . htmlspecialchars($_REQUEST['optionc'],ENT_QUOTES) . "',optiond='" . htmlspecialchars($_REQUEST['optiond'],ENT_QUOTES) . "',correctanswer='" . htmlspecialchars($_REQUEST['correctans'],ENT_QUOTES) . "',marks=" . htmlspecialchars($_REQUEST['marks'],ENT_QUOTES) . " where testid=" . $_SESSION['testqn'] . " and qnid=" . $_REQUEST['qnid'] . " ;";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Question is updated Successfully.";
+            $_GLOBALS['message'] = "问题已成功更新。";
     }
     closedb();
 }
@@ -116,7 +116,7 @@ else if (isset($_REQUEST['savea'])) {
 
     if (!is_null($r2['q']) && (int) htmlspecialchars_decode($r1['totalquestions'],ENT_QUOTES) == (int) $r2['q']) {
         $cancel = true;
-        $_GLOBALS['message'] = "Already you have created all the Questions for this Test.<br /><b>Help:</b> If you still want to add some more questions then edit the test settings(option:Total Questions).";
+        $_GLOBALS['message'] = "您已经创建了此测试的所有问题.<br /><b>帮助:</b> 如果您仍想添加一些问题, 请编辑测试设置 (选项: 总计问题)。";
     }
     else
         $cancel=false;
@@ -124,20 +124,20 @@ else if (isset($_REQUEST['savea'])) {
     $result = executeQuery("select * from question where testid=" . $_SESSION['testqn'] . " and question='" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "';");
     if (!$cancel && $r1 = mysql_fetch_array($result)) {
         $cancel = true;
-        $_GLOBALS['message'] = "Sorry, You trying to enter same question for Same test";
+        $_GLOBALS['message'] = "对不起, 您试图为相同的测试输入相同的问题";
     } else if (!$cancel)
         $cancel = false;
     // $_GLOBALS['message']=$newstd;
     if (strcmp($_REQUEST['correctans'], "<Choose the Correct Answer>") == 0 || empty($_REQUEST['question']) || empty($_REQUEST['optiona']) || empty($_REQUEST['optionb']) || empty($_REQUEST['optionc']) || empty($_REQUEST['optiond']) || empty($_REQUEST['marks'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty";
+        $_GLOBALS['message'] = "某些必填字段为空";
     } else if (strcasecmp($_REQUEST['optiona'], $_REQUEST['optionb']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionc'], $_REQUEST['optiond']) == 0) {
-        $_GLOBALS['message'] = "Two or more options are representing same answers.Verify Once again";
+        $_GLOBALS['message'] = "两个或多个选项表示相同的答案。再次验证";
     } else if (!$cancel) {
         $query = "insert into question values(" . $_SESSION['testqn'] . ",$newstd,'" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optiona'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optionb'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optionc'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optiond'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['correctans'],ENT_QUOTES) . "'," . htmlspecialchars($_REQUEST['marks'],ENT_QUOTES) . ")";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Successfully New Question is Created.";
+            $_GLOBALS['message'] = "已成功创建新问题。";
     }
     closedb();
 }
@@ -197,7 +197,7 @@ if ($_GLOBALS['message']) {
 ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form name="prepqn" action="prepqn.php" method="post">
                 <div class="menubar">
@@ -243,9 +243,9 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                         $result = executeQuery("select totalquestions from test where testid=" . $_SESSION['testqn'] . ";");
                         $r2 = mysql_fetch_array($result);
                         if ((int) $r1['q'] == (int) htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES))
-                            echo "<div class=\"pmsg\"> Test Name: " . $_SESSION['testname'] . "<br/>Status: All the Questions are Created for this test.</div>";
+                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 所有问题都是为此测试创建的。</div>";
                         else
-                            echo "<div class=\"pmsg\"> Test Name: " . $_SESSION['testname'] . "<br/>Status: Still you need to create " . (htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES) - $r1['q']) . " Question/s. After that only, test will be available for candidates.</div>";
+                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 仍然需要创建" . (htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES) - $r1['q']) . " 问题. 在这之后, 应试者就可以参加考试了。</div>";
                         ?>
                         <?php
                         if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
@@ -256,40 +256,40 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                         ?>
                                 <table cellpadding="20" cellspacing="20" style="text-align:left;" >
                                     <tr>
-                                        <td>Question</td>
+                                        <td>问题</td>
                                         <td><textarea name="question" cols="40" rows="3"  ></textarea></td>
                                     </tr>
                                     <tr>
-                                        <td>Option A</td>
+                                        <td>选项 A</td>
                                         <td><input type="text" name="optiona" value="" size="30"  /></td>
                                     </tr>
                                     <tr>
-                                        <td>Option B</td>
+                                        <td>选项 B</td>
                                         <td><input type="text" name="optionb" value="" size="30"  /></td>
                                     </tr>
 
                                     <tr>
-                                        <td>Option C</td>
+                                        <td>选项 C</td>
                                         <td><input type="text" name="optionc" value="" size="30"  /></td>
                                     </tr>
                                     <tr>
-                                        <td>Option D</td>
+                                        <td>选项 D</td>
                                         <td><input type="text" name="optiond" value="" size="30"  /></td>
                                     </tr>
                                     <tr>
                                         <td>正确答案</td>
                                         <td>
                                             <select name="correctans">
-                                                <option value="<Choose the Correct Answer>" selected>&lt;Choose the Correct Answer&gt;</option>
-                                                <option value="optiona">Option A</option>
-                                                <option value="optionb">Option B</option>
-                                                <option value="optionc">Option C</option>
-                                                <option value="optiond">Option D</option>
+                                                <option value="<Choose the Correct Answer>" selected>&lt;选择正确答案&gt;</option>
+                                                <option value="optiona">选项 A</option>
+                                                <option value="optionb">选项 B</option>
+                                                <option value="optionc">选项 C</option>
+                                                <option value="optiond">选项 D</option>
                                             </select>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Marks</td>
+                                        <td>分数</td>
                                         <td><input type="text" name="marks" value="1" size="30" onkeyup="isnum(this)" /></td>
 
                                     </tr>
@@ -314,20 +314,20 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                             <td><textarea name="question" cols="40" rows="3"  ><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea></td>
                                         </tr>
                                         <tr>
-                                            <td>Option A</td>
+                                            <td>选项 A</td>
                                             <td><input type="text" name="optiona" value="<?php echo htmlspecialchars_decode($r['optiona'],ENT_QUOTES); ?>" size="30"  /></td>
                                         </tr>
                                         <tr>
-                                            <td>Option B</td>
+                                            <td>选项 B</td>
                                             <td><input type="text" name="optionb" value="<?php echo htmlspecialchars_decode($r['optionb'],ENT_QUOTES); ?>" size="30"  /></td>
                                         </tr>
 
                                         <tr>
-                                            <td>Option C</td>
+                                            <td>选项 C</td>
                                             <td><input type="text" name="optionc" value="<?php echo htmlspecialchars_decode($r['optionc'],ENT_QUOTES); ?>" size="30"  /></td>
                                         </tr>
                                         <tr>
-                                            <td>Option D</td>
+                                            <td>选项 D</td>
                                             <td><input type="text" name="optiond" value="<?php echo htmlspecialchars_decode($r['optiond'],ENT_QUOTES); ?>" size="30"  /></td>
                                         </tr>
                                         <tr>
@@ -335,18 +335,18 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                             <td>
                                                 <select name="correctans">
                                                     <option value="optiona" <?php if (strcmp(htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES), "optiona") == 0)
-                                        echo "selected"; ?>>Option A</option>
+                                        echo "selected"; ?>>选项 A</option>
                                                     <option value="optionb" <?php if (strcmp(htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES), "optionb") == 0)
-                                        echo "selected"; ?>>Option B</option>
+                                        echo "selected"; ?>>选项 B</option>
                                                     <option value="optionc" <?php if (strcmp(htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES), "optionc") == 0)
-                                        echo "selected"; ?>>Option C</option>
+                                        echo "selected"; ?>>选项 C</option>
                                                     <option value="optiond" <?php if (strcmp(htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES), "optiond") == 0)
-                                        echo "selected"; ?>>Option D</option>
+                                        echo "selected"; ?>>选项 D</option>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Marks</td>
+                                            <td>分数</td>
                                             <td><input type="text" name="marks" value="<?php echo htmlspecialchars_decode($r['marks'],ENT_QUOTES); ?>" size="30" onkeyup="isnum(this)" /></td>
 
                                         </tr>
@@ -370,7 +370,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                     <table cellpadding="30" cellspacing="10" class="datatable">
                                         <tr>
                                             <th>&nbsp;</th>
-                                            <th>Qn.No</th>
+                                            <th>题目号</th>
                                             <th>题目</th>
                                             <th>正确答案</th>
                                             <th>分数</th>
@@ -400,7 +400,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                 </div>
             </form>
             <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
             </div>
         </div>
     </body>
