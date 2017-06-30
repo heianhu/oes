@@ -2,7 +2,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -28,11 +28,11 @@ error_reporting(0);
 /********************* Step 1 *****************************/
 session_start();
         if(!isset($_SESSION['admname'])){
-            $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+            $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
         }
         else if(isset($_REQUEST['logout'])){
            unset($_SESSION['admname']);
-            $_GLOBALS['message']="You are Loggged Out Successfully.";
+            $_GLOBALS['message']="您已成功注销";
             header('Location: index.php');
         }
 ?>
@@ -52,7 +52,7 @@ session_start();
         ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <div class="menubar">
 
@@ -90,7 +90,7 @@ session_start();
             </div>
 
           <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

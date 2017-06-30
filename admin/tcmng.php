@@ -2,7 +2,7 @@
 <?php
 /*
  * ***********************************************************
- * ** Online Examination System                            ***
+ * ** 在线考试系统                            ***
  * **----------------------------------------------------  ***
  * ** License: GNU General Public License V.3              ***
  * ** Author: Manjunath Baddi                              ***
@@ -42,7 +42,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -65,7 +65,7 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from testconductor where tcid=$variable")){
                if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "Too Prevent accidental deletions, system will not allow propagated deletions.<br/><b>Help:</b> If you still want to delete this user, then first manually delete all the records that are associated with this user.";
+                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。<br/><b>帮助:</b> 如果仍要删除此用户, 则首先手动删除与此用户关联的所有记录。";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
@@ -73,21 +73,21 @@ if (!isset($_SESSION['admname'])) {
         }
     }
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "Selected Test Conductor/s are successfully Deleted";
+        $_GLOBALS['message'] = "选定的测试导体成功删除";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "First Select the Test Conductors to be Deleted.";
+        $_GLOBALS['message'] = "首先选择要删除的测试导体。";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty.Therefore Nothing is Updated";
+        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
     } else {
         $query = "update testconductor set tcname='" . htmlspecialchars($_REQUEST['cname'],ENT_QUOTES) . "', tcpassword=ENCODE('" . htmlspecialchars($_REQUEST['password'],ENT_QUOTES) . "','oespass'),emailid='" . htmlspecialchars($_REQUEST['email'],ENT_QUOTES) . "',contactno='" . htmlspecialchars($_REQUEST['contactno'],ENT_QUOTES) . "',address='" .htmlspecialchars($_REQUEST['address'],ENT_QUOTES) . "',city='" . htmlspecialchars($_REQUEST['city'],ENT_QUOTES) . "',pincode='" . htmlspecialchars($_REQUEST['pin'],ENT_QUOTES) . "' where tcid='" . $_REQUEST['tc'] . "';";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Test Conductor Information is Successfully Updated.";
+            $_GLOBALS['message'] = "测试导体信息已成功更新。";
     }
     closedb();
 }
@@ -105,19 +105,19 @@ else if (isset($_REQUEST['savea'])) {
 
 
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty";
+        $_GLOBALS['message'] = "某些必填字段为空";
     } else if (mysql_num_rows($result) > 0) {
-        $_GLOBALS['message'] = "Sorry User Already Exists.";
+        $_GLOBALS['message'] = "对不起, 用户已存在。";
     } else {
         $query = "insert into testconductor values($newstd,'" . htmlspecialchars($_REQUEST['cname'],ENT_QUOTES) . "',ENCODE('" . htmlspecialchars($_REQUEST['password'],ENT_QUOTES) . "','oespass'),'" . htmlspecialchars($_REQUEST['email'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['contactno'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['address'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['city'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['pin'],ENT_QUOTES) . "')";
         if (!@executeQuery($query)) {
             if(mysql_errno ()==1062) //duplicate value
-            $_GLOBALS['message'] = "Given Test Conductor Name voilates some constraints, please try with some other name.";
+            $_GLOBALS['message'] = "给定测试导体名称违反一些限制，请尝试使用其他名称。";
             else
             $_GLOBALS['message'] = mysql_error();
         }
         else
-            $_GLOBALS['message'] = "Successfully New Test Conductor is Created.";
+            $_GLOBALS['message'] = "已成功创建新的测试导体。";
     }
     closedb();
 }
@@ -137,7 +137,7 @@ if ($_GLOBALS['message']) {
 ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form name="tcmng" action="tcmng.php" method="post">
                 <div class="menubar">
@@ -236,36 +236,36 @@ if ($_GLOBALS['message']) {
 ?>
                             <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
                                 <tr>
-                                    <td>TC Name</td>
+                                    <td>测试员姓名</td>
                                     <td><input type="text" name="cname" value="<?php echo htmlspecialchars_decode($r['tcname'],ENT_QUOTES); ?>" size="16" /></td>
 
                                 </tr>
 
                                 <tr>
-                                    <td>Password</td>
+                                    <td>密码</td>
                                     <td><input type="text" name="password" value="<?php echo htmlspecialchars_decode($r['tcpass'],ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)" /></td>
 
                                 </tr>
 
                                 <tr>
-                                    <td>E-mail ID</td>
+                                    <td>E-mail</td>
                                     <td><input type="text" name="email" value="<?php echo htmlspecialchars_decode($r['emailid'],ENT_QUOTES); ?>" size="16" /></td>
                                 </tr>
                                 <tr>
-                                    <td>Contact No</td>
+                                    <td>联系电话</td>
                                     <td><input type="text" name="contactno" value="<?php echo htmlspecialchars_decode($r['contactno'],ENT_QUOTES); ?>" size="16" onkeyup="isnum(this)"/></td>
                                 </tr>
 
                                 <tr>
-                                    <td>Address</td>
+                                    <td>地址</td>
                                     <td><textarea name="address" cols="20" rows="3"><?php echo htmlspecialchars_decode($r['address'],ENT_QUOTES); ?></textarea></td>
                                 </tr>
                                 <tr>
-                                    <td>City</td>
+                                    <td>城市</td>
                                     <td><input type="text" name="city" value="<?php echo htmlspecialchars_decode($r['city'],ENT_QUOTES); ?>" size="16" /></td>
                                 </tr>
                                 <tr>
-                                    <td>PIN Code</td>
+                                    <td>PIN码</td>
                                     <td><input type="hidden" name="tc" value="<?php echo htmlspecialchars_decode($r['tcid'],ENT_QUOTES); ?>"/><input type="text" name="pin" value="<?php echo htmlspecialchars_decode($r['pincode'],ENT_QUOTES); ?>" size="16" onkeyup="isnum(this)" /></td>
                                 </tr>
 
@@ -285,10 +285,10 @@ if ($_GLOBALS['message']) {
                             <table cellpadding="30" cellspacing="10" class="datatable">
                                 <tr>
                                     <th>&nbsp;</th>
-                                    <th>TC Name</th>
-                                    <th>Email-ID</th>
-                                    <th>Contact Number</th>
-                                    <th>Edit</th>
+                                    <th>测试员姓名</th>
+                                    <th>Email</th>
+                                    <th>联系电话</th>
+                                    <th>编辑</th>
                                 </tr>
                     <?php
                             while ($r = mysql_fetch_array($result)) {
@@ -313,7 +313,7 @@ if ($_GLOBALS['message']) {
                 </div>
             </form>
             <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
             </div>
         </div>
     </body>

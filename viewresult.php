@@ -5,7 +5,7 @@
 
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -17,7 +17,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout'])) {
     //Log out and redirect login page
@@ -43,7 +43,7 @@ else if(isset($_REQUEST['logout'])) {
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>OES-View Result</title>
+        <title>查看结果</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -61,7 +61,7 @@ else if(isset($_REQUEST['logout'])) {
         ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form id="summary" action="viewresult.php" method="post">
                 <div class="menubar">
@@ -157,7 +157,7 @@ else if(isset($_REQUEST['logout'])) {
                                     ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>Q. No</th>
+                            <th>问题号</th>
                             <th>题目</th>
                             <th>正确答案</th>
                             <th>你的选择</th>
@@ -277,7 +277,7 @@ else if(isset($_REQUEST['logout'])) {
 
             </form>
             <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

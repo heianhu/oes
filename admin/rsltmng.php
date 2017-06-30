@@ -3,7 +3,7 @@
 
 /*
 ****************************************************
-*** Online Examination System                    ***
+*** 在线考试系统                    ***
 ***----------------------------------------------***
 *** License: GNU General Public License V.3      ***
 *** Author: Manjunath Baddi                      ***
@@ -42,7 +42,7 @@ session_start();
 include_once '../oesdb.php';
 /************************** Step 1 *************************/
 if(!isset($_SESSION['admname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout'])) {
     /************************** Step 2 - Case 1 *************************/
@@ -81,7 +81,7 @@ else if(isset($_REQUEST['logout'])) {
         ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form name="rsltmng" action="rsltmng.php" method="post">
                 <div class="menubar">
@@ -118,24 +118,24 @@ else if(isset($_REQUEST['logout'])) {
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
                         </tr>
                         <tr>
-                            <td>Test Name</td>
+                            <td>测试名称</td>
                             <td><?php echo htmlspecialchars_decode($r['testname'],ENT_QUOTES); ?></td>
                         </tr>
                         <tr>
-                            <td>Subject Name</td>
+                            <td>主题名称</td>
                             <td><?php echo htmlspecialchars_decode($r['subname'],ENT_QUOTES); ?></td>
                         </tr>
                         <tr>
-                            <td>Validity</td>
+                            <td>有效性</td>
                             <td><?php echo $r['fromdate']." To ".$r['todate']; ?></td>
                         </tr>
                         <tr>
-                            <td>Max. Marks</td>
+                            <td>最大分数</td>
                             <td><?php echo $r['maxmarks']; ?></td>
                         </tr>
                         <tr><td colspan="2"><hr style="color:#ff0000;border-width:2px;"/></td></tr>
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">Attempted Students</h3></td>
+                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">测试学生</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -153,10 +153,10 @@ else if(isset($_REQUEST['logout'])) {
                                     ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>Student Name</th>
-                            <th>Email-ID</th>
-                            <th>Obtained Marks</th>
-                            <th>Result(%)</th>
+                            <th>学生姓名</th>
+                            <th>邮箱</th>
+                            <th>获得的分数</th>
+                            <th>结果(%)</th>
 
                         </tr>
                                         <?php
@@ -178,7 +178,7 @@ else if(isset($_REQUEST['logout'])) {
                                     }
                                 }
                                 else {
-                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">Something went wrong. Please logout and Try again.</h3>";
+                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">出错了,请注销, 然后重试。</h3>";
                                 }
                                 ?>
                     </table>
@@ -193,7 +193,7 @@ else if(isset($_REQUEST['logout'])) {
                         // Defualt Mode: Displays the Test Results.
                             $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(t.testfrom,'%d %M %Y') as fromdate,DATE_FORMAT(t.testto,'%d %M %Y %H:%i:%S') as todate,sub.subname,(select count(stdid) from studenttest where testid=t.testid) as attemptedstudents from test as t, subject as sub where sub.subid=t.subid;");
                             if(mysql_num_rows($result)==0) {
-                                echo "<h3 style=\"color:#0000cc;text-align:center;\">No Tests Yet...!</h3>";
+                                echo "<h3 style=\"color:#0000cc;text-align:center;\">尚未测试...!</h3>";
                             }
                             else {
                                 $i=0;
@@ -201,11 +201,11 @@ else if(isset($_REQUEST['logout'])) {
                                 ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>Test Name</th>
-                            <th>Validity</th>
-                            <th>Subject Name</th>
-                            <th>Attempted Students</th>
-                            <th>Details</th>
+                            <th>测试名称</th>
+                            <th>有效性</th>
+                            <th>主题名称</th>
+                            <th>测试学生</th>
+                            <th>详细</th>
                         </tr>
             <?php
                                     while($r=mysql_fetch_array($result)) {
@@ -231,7 +231,7 @@ else if(isset($_REQUEST['logout'])) {
                 </div>
             </form>
             <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

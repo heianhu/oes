@@ -6,7 +6,7 @@
 
  /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -59,13 +59,13 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
                   header('Location: stdwelcome.php');
               }else
           {
-              $_GLOBALS['message']="Check Your user name and Password.";
+              $_GLOBALS['message']="检查您的用户名和密码。";
           }
 
           }
           else
           {
-              $_GLOBALS['message']="Check Your user name and Password.";
+              $_GLOBALS['message']="检查您的用户名和密码。";
           }
           closedb();
       }
@@ -74,7 +74,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>Online Examination System</title>
+    <title>在线考试系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="oes.css"/>
   </head>
@@ -90,7 +90,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
       <div id="container">
             
                 <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
      <form id="stdloginform" action="index.php" method="post">
       <div class="menubar">
@@ -111,12 +111,12 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
               
               <table cellpadding="30" cellspacing="10">
               <tr>
-                  <td>User Name</td>
+                  <td>用户名</td>
                   <td><input type="text" tabindex="1" name="name" value="" size="16" /></td>
 
               </tr>
               <tr>
-                  <td>Password</td>
+                  <td>密码</td>
                   <td><input type="password" tabindex="2" name="password" value="" size="16" /></td>
               </tr>
 
@@ -132,7 +132,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
        </form>
 
     <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

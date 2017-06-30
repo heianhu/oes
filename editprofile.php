@@ -5,7 +5,7 @@
 
 /*
 ****************************************************
-*** Online Examination System                    ***
+*** 在线考试系统                    ***
 ***----------------------------------------------***
 *** License: GNU General Public License V.3      ***
 *** Author: Manjunath Baddi                      ***
@@ -42,7 +42,7 @@ session_start();
 include_once 'oesdb.php';
 /************************** Step 1 *************************/
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -63,7 +63,7 @@ else if(isset($_REQUEST['dashboard'])){
                 //updating the modified values
     if(empty($_REQUEST['cname'])||empty ($_REQUEST['password'])||empty ($_REQUEST['email']))
     {
-         $_GLOBALS['message']="Some of the required Fields are Empty.Therefore Nothing is Updated";
+         $_GLOBALS['message']="一些必填字段为空。因此没有更新";
     }
     else
     {
@@ -71,7 +71,7 @@ else if(isset($_REQUEST['dashboard'])){
      if(!@executeQuery($query))
         $_GLOBALS['message']=mysql_error();
      else
-        $_GLOBALS['message']="Your Profile is Successfully Updated.";
+        $_GLOBALS['message']="您的个人资料已成功更新.";
     }
     closedb();
 
@@ -83,7 +83,7 @@ else if(isset($_REQUEST['dashboard'])){
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>OES-Edit Profile</title>
+    <title>编辑个人资料</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="oes.css"/>
     <script type="text/javascript" src="validate.js" ></script>
@@ -97,7 +97,7 @@ else if(isset($_REQUEST['dashboard'])){
         ?>
       <div id="container">
       <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
            <form id="editprofile" action="editprofile.php" method="post">
           <div class="menubar">
@@ -138,7 +138,7 @@ else if(isset($_REQUEST['dashboard'])){
               </tr>
 
               <tr>
-                  <td>E-mail ID</td>
+                  <td>邮箱</td>
                   <td><input type="text" name="email" value="<?php echo htmlspecialchars_decode($r['emailid'],ENT_QUOTES); ?>" size="16" /></td>
               </tr>
                        <tr>
@@ -170,7 +170,7 @@ else if(isset($_REQUEST['dashboard'])){
 
            </form>
       <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>

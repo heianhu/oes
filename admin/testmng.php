@@ -2,7 +2,7 @@
 <?php
 /*
  * **************************************************
- * ** Online Examination System                   ***
+ * ** 在线考试系统                   ***
  * **---------------------------------------------***
  * ** License: GNU General Public License V.3     ***
  * ** Author: Manjunath Baddi                     ***
@@ -43,7 +43,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -63,16 +63,16 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from test where testid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "Too Prevent accidental deletions, system will not allow propagated deletions.<br/><b>Help:</b> If you still want to delete this test, then first delete the questions that are associated with it.";
+                    $_GLOBALS['message'] = "防止意外删除，系统不允许传播删除。<br/><b>帮助:</b> 如果仍要删除此测试, 则首先删除与之关联的问题。";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
         }
     }
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "Selected Tests are successfully Deleted";
+        $_GLOBALS['message'] = "已成功删除选定的测试";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "First Select the Tests to be Deleted.";
+        $_GLOBALS['message'] = "首先选择要删除的测试。";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
@@ -81,15 +81,15 @@ if (!isset($_SESSION['admname'])) {
     $totime = $_REQUEST['testto'] . " 23:59:59";
     $_GLOBALS['message'] = strtotime($totime) . "  " . strtotime($fromtime) . "  " . time();
     if (strtotime($fromtime) > strtotime($totime) || strtotime($totime) < time())
-        $_GLOBALS['message'] = "Start date of test is less than end date or last date of test is less than today's date.<br/>Therefore Nothing is Updated";
+        $_GLOBALS['message'] = "测试的开始日期小于结束日期或测试的最后日期小于今天的日期。<br/>因此没有更新";
     else if (empty($_REQUEST['testname']) || empty($_REQUEST['testdesc']) || empty($_REQUEST['totalqn']) || empty($_REQUEST['duration']) || empty($_REQUEST['testfrom']) || empty($_REQUEST['testto']) || empty($_REQUEST['testcode'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty.Therefore Nothing is Updated";
+        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
     } else {
         $query = "update test set testname='" . htmlspecialchars($_REQUEST['testname'], ENT_QUOTES) . "',testdesc='" . htmlspecialchars($_REQUEST['testdesc'], ENT_QUOTES) . "',subid=" . htmlspecialchars($_REQUEST['subject'], ENT_QUOTES) . ",testfrom='" . $fromtime . "',testto='" . $totime . "',duration=" . htmlspecialchars($_REQUEST['duration'], ENT_QUOTES) . ",totalquestions=" . htmlspecialchars($_REQUEST['totalqn'], ENT_QUOTES) . ",testcode=ENCODE('" . htmlspecialchars($_REQUEST['testcode'], ENT_QUOTES) . "','oespass') where testid=" . $_REQUEST['testid'] . ";";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "Test Information is Successfully Updated.";
+            $_GLOBALS['message'] = "测试信息已成功更新。";
     }
     closedb();
 }
@@ -101,10 +101,10 @@ else if (isset($_REQUEST['savea'])) {
     $totime = $_REQUEST['testto'] . " 23:59:59";
     if (strtotime($fromtime) > strtotime($totime) || strtotime($fromtime) < (time() - 3600)) {
         $noerror = false;
-        $_GLOBALS['message'] = "Start date of test is either less than today's date or greater than last date of test.";
+        $_GLOBALS['message'] = "测试的开始日期要么小于今天的日期, 要么大于测试的最后日期。";
     } else if ((strtotime($totime) - strtotime($fromtime)) <= 3600 * 24) {
         $noerror = true;
-        $_GLOBALS['message'] = "Note:<br/>The test is valid upto " . date(DATE_RFC850, strtotime($totime));
+        $_GLOBALS['message'] = "注意:<br/>测试是有效的 " . date(DATE_RFC850, strtotime($totime));
     }
     //$_GLOBALS['message']="time".date_format($first, DATE_ATOM)."<br/>time ".date_format($second, DATE_ATOM);
 
@@ -118,17 +118,17 @@ else if (isset($_REQUEST['savea'])) {
 
     // $_GLOBALS['message']=$newstd;
     if (strcmp($_REQUEST['subject'], "<Choose the Subject>") == 0 || empty($_REQUEST['testname']) || empty($_REQUEST['testdesc']) || empty($_REQUEST['totalqn']) || empty($_REQUEST['duration']) || empty($_REQUEST['testfrom']) || empty($_REQUEST['testto']) || empty($_REQUEST['testcode'])) {
-        $_GLOBALS['message'] = "Some of the required Fields are Empty";
+        $_GLOBALS['message'] = "某些必填字段为空";
     } else if ($noerror) {
         $query = "insert into test values($newstd,'" . htmlspecialchars($_REQUEST['testname'], ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['testdesc'], ENT_QUOTES) . "',(select curDate()),(select curTime())," . htmlspecialchars($_REQUEST['subject'], ENT_QUOTES) . ",'" . $fromtime . "','" . $totime . "'," . htmlspecialchars($_REQUEST['duration'], ENT_QUOTES) . "," . htmlspecialchars($_REQUEST['totalqn'], ENT_QUOTES) . ",0,ENCODE('" . htmlspecialchars($_REQUEST['testcode'], ENT_QUOTES) . "','oespass'),NULL)";
         if (!@executeQuery($query)) {
             if (mysql_errno () == 1062) //duplicate value
-                $_GLOBALS['message'] = "Given Test Name voilates some constraints, please try with some other name.";
+                $_GLOBALS['message'] = "给定测试名称违反一些限制，请尝试使用其他名称。";
             else
                 $_GLOBALS['message'] = mysql_error();
         }
         else
-            $_GLOBALS['message'] = $_GLOBALS['message'] . "<br/>Successfully New Test is Created.";
+            $_GLOBALS['message'] = $_GLOBALS['message'] . "<br/>已成功创建新测试。";
     }
     closedb();
 }
@@ -150,7 +150,7 @@ else if (isset($_REQUEST['manageqn'])) {
 ?>
 <html>
     <head>
-        <title>OES-Manage Tests</title>
+        <title>管理测试</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../oes.css"/>
         <link rel="stylesheet" type="text/css" media="all" href="../calendar/jsDatePick.css" />
@@ -181,7 +181,7 @@ if ($_GLOBALS['message']) {
 ?>
         <div id="container">
             <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
             </div>
             <form name="testmng" action="testmng.php" method="post">
                 <div class="menubar">
@@ -361,7 +361,7 @@ if (isset($_SESSION['admname'])) {
                                 // Defualt Mode: Displays the Existing Test/s, If any.
                                 $result = executeQuery("select t.testid,t.testname,t.testdesc,s.subname,DECODE(t.testcode,'oespass') as tcode,DATE_FORMAT(t.testfrom,'%d-%M-%Y') as testfrom,DATE_FORMAT(t.testto,'%d-%M-%Y %H:%i:%s %p') as testto from test as t,subject as s where t.subid=s.subid order by t.testdate desc,t.testtime desc;");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo "<h3 style=\"color:#0000cc;text-align:center;\">No Tests Yet..!</h3>";
+                                    echo "<h3 style=\"color:#0000cc;text-align:center;\">尚未测试..!</h3>";
                                 } else {
                                     $i = 0;
 ?>
@@ -399,7 +399,7 @@ if (isset($_SESSION['admname'])) {
                 </div>
             </form>
             <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
             </div>
         </div>
     </body>

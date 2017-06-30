@@ -3,7 +3,7 @@
 <?php
 /*
 ***************************************************
-*** Online Examination System                   ***
+*** 在线考试系统                   ***
 ***---------------------------------------------***
 *** License: GNU General Public License V.3     ***
 *** Author: Manjunath Baddi                     ***
@@ -14,17 +14,17 @@
 error_reporting(0);
 session_start();
         if(!isset($_SESSION['stdname'])){
-            $_GLOBALS['message']="Session Timeout.Click here to <a href=\"index.php\">Re-LogIn</a>";
+            $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
         }
         else if(isset($_REQUEST['logout'])){
                 unset($_SESSION['stdname']);
-            $_GLOBALS['message']="You are Loggged Out Successfully.";
+            $_GLOBALS['message']="您已成功注销";
             header('Location: index.php');
         }
 ?>
 <html>
     <head>
-        <title>OES-DashBoard</title>
+        <title>主面板</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="oes.css"/>
     </head>
@@ -40,7 +40,7 @@ session_start();
            
              <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="80" src="images/logo.gif" alt="OES"/>
              <div>
-              <h3 class="headtext"> &nbsp;Online Examination System </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...because Examination Matters</i></h4>
+              <h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
               </div>
               <div><button onclick="{location.href='editprofile.php?edit=edit'}" class="subbtn">编辑个人资料</button></div>
                 
@@ -82,7 +82,7 @@ session_start();
             </div>
 
            <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>Manjunath Baddi</b><br/> </p><p>Released under the GNU General Public License v.3</p>
+          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
       </div>
       </div>
   </body>
