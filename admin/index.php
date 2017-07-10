@@ -83,6 +83,16 @@ Step 2: IF POST array has some varibles then, perform authentication.
 
       <?php require 'admheader.php' ?>
 
+
+<!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>管理员登陆</h2>       
+            </header>
+          </div>
+        </div>
+
       <div id="container">
 
       <div class="menubar">
@@ -103,7 +113,7 @@ Step 2: IF POST array has some varibles then, perform authentication.
 
               <tr>
                   <td colspan="2">
-                      <input type="submit" value="Log In" name="admsubmit" class="subbtn" />
+                      <input type="submit" value="登录" name="admsubmit" class="button  special" />
                   </td><td></td>
               </tr>
             </table>

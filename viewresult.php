@@ -61,24 +61,31 @@ else if(isset($_REQUEST['logout'])) {
         ?>
             <?php    require 'header.php' ?>
 
-        <div id="container">
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>查看结果</h2>       
+            </header>
+          </div>
+        </div>
             
             <form id="summary" action="viewresult.php" method="post">
                 <div class="menubar">
-                    <ul id="menu" >
+                    <ul id="menu" class="actions  small">
                         <?php if(isset($_SESSION['stdname'])) {
                         // Navigations
                         if(isset($_REQUEST['details'])) {
               ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
+                       
                         <li><input type="submit" value="返回" name="back" class="subbtn" title="View Results"/></li>
                         <?php
                         }
                         else
                         {
                             ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                      
+                       
                         <?php
                         }
                         ?>
@@ -97,7 +104,7 @@ else if(isset($_REQUEST['logout'])) {
 
                                 $r=mysql_fetch_array($result);
                                 ?>
-                    <table cellpadding="20" cellspacing="30" border="0" style="background:#ffffff url(images/page.gif);text-align:left;line-height:20px;">
+                    <table cellpadding="20" cellspacing="30" border="0"  url(images/page.gif);text-align:left;line-height:20px;">
                         <tr>
                             <td colspan="2"><h3 style="color:#0000cc;text-align:center;">测试总结</h3></td>
                         </tr>

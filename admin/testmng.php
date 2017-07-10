@@ -181,38 +181,45 @@ if ($_GLOBALS['message']) {
 ?>
 <?php require 'admheader.php' ?>
 
-        <div id="container">
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>准备题目</h2>       
+            </header>
+          </div>
+        </div>
 
             <form name="testmng" action="testmng.php" method="post">
                 <div class="menubar">
 
 
-                    <ul id="menu">
+                    <ul id="menu" class="actions  small">
 <?php
 if (isset($_SESSION['admname'])) {
     // Navigations
 ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                        
 
 <?php
     //navigation for Add option
     if (isset($_REQUEST['add'])) {
 ?>
-                        <li><input type="submit" value="取消" name="cancel" class="subbtn" title="Cancel"/></li>
-                        <li><input type="submit" value="保存" name="savea" class="subbtn" onclick="validatetestform('testmng')" title="Save the Changes"/></li>
+                        <li><input type="submit" value="取消" name="cancel" class="button small fit" title="Cancel"/></li>
+                        <li><input type="submit" value="保存" name="savea" class="button small fit" onclick="validatetestform('testmng')" title="Save the Changes"/></li>
 
 <?php
     } else if (isset($_REQUEST['edit'])) { //navigation for Edit option
 ?>
-                        <li><input type="submit" value="取消" name="cancel" class="subbtn" title="Cancel"/></li>
-                        <li><input type="submit" value="保存" name="savem" class="subbtn" onclick="validatetestform('testmng')" title="Save the changes"/></li>
+                        <li><input type="submit" value="取消" name="cancel" class="button small fit" title="Cancel"/></li>
+                        <li><input type="submit" value="保存" name="savem" class="button small fit" onclick="validatetestform('testmng')" title="Save the changes"/></li>
 
 <?php
     } else {  //navigation for Default
 ?>
-                        <li><input type="submit" value="删除" name="delete" class="subbtn" title="Delete"/></li>
-                        <li><input type="submit" value="添加" name="add" class="subbtn" title="Add"/></li>
+                        <li><input type="submit" value="添加" name="add" class="button small fit" title="Add"/></li>
+
+                        <li><input type="submit" value="删除" name="delete" class="button small fit" title="Delete"/></li>
 <?php }
 } ?>
                     </ul>

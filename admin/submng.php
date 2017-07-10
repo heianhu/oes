@@ -132,10 +132,19 @@ if ($_GLOBALS['message']) {
     echo "<div class=\"message\">" . $_GLOBALS['message'] . "</div>";
 }
 ?>
-        <div id="container">
-            <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
-            </div>
+
+        <?php require 'admheader.php' ?>
+
+       
+           <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>管理科目</h2>       
+            </header>
+          </div>
+        </div>
+
             <form name="submng" action="submng.php" method="post">
                 <div class="menubar">
 
@@ -144,28 +153,31 @@ if ($_GLOBALS['message']) {
 <?php
 if (isset($_SESSION['admname'])) {
 // Navigations
-?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
-
+?>      
+                        <ul class="actions  small">
+                        
+                       
 <?php
     //navigation for Add option
     if (isset($_REQUEST['add'])) {
 ?>
-                        <li><input type="submit" value="取消" name="cancel" class="subbtn" title="Cancel"/></li>
-                        <li><input type="submit" value="保存" name="savea" class="subbtn" onclick="validatesubform('submng')" title="Save the Changes"/></li>
+                        <li><input type="submit" value="取消" name="cancel" class="button small fit" title="Cancel"/></li>
+                        <li><input type="submit" value="保存" name="savea" class="button small fit" onclick="validatesubform('submng')" title="Save the Changes"/></li>
 
 <?php
     } else if (isset($_REQUEST['edit'])) { //navigation for Edit option
 ?>
-                        <li><input type="submit" value="取消" name="cancel" class="subbtn" title="Cancel"/></li>
-                        <li><input type="submit" value="保存" name="savem" class="subbtn" onclick="validatesubform('submng')" title="Save the changes"/></li>
+                        <li><input type="submit" value="取消" name="cancel" class="button small fit" title="Cancel"/></li>
+                        <li><input type="submit" value="保存" name="savem" class="button small fit" onclick="validatesubform('submng')" title="Save the changes"/></li>
 
 <?php
     } else {  //navigation for Default
 ?>
-                        <li><input type="submit" value="删除" name="delete" class="subbtn" title="Delete"/></li>
-                        <li><input type="submit" value="添加" name="add" class="subbtn" title="Add"/></li>
+                        
+                        <li><input type="submit" value="添加" name="add" class="button small fit" title="Add"/></li>
+                        <li><input type="submit" value="删除" name="delete" class="button small fit" title="Delete"/></li>
+                        </ul>
+                        
 <?php }
 } ?>
                     </ul>
@@ -180,7 +192,7 @@ if (isset($_SESSION['admname'])) {
         /*         * ************************ Step 3 - Case 1 ************************ */
         //Form for the new Subject
 ?>
-                    <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
+                    <table cellpadding="20" cellspacing="20"  >
                         <tr>
                             <td>科目名</td>
                             <td><input type="text" name="subname" value="" size="16" onblur="if(this.value==''){alert('Subject Name is Empty');this.focus();}"/></td>
@@ -207,7 +219,7 @@ if (isset($_SESSION['admname'])) {
 
             //editing components
 ?>
-                    <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
+                    <table cellpadding="20" cellspacing="20"  >
                         <tr>
                             <td>科目名</td>
                             <td><input type="text" name="subname" value="<?php echo htmlspecialchars_decode($r['subname'], ENT_QUOTES); ?>" size="16" /></td>
@@ -261,9 +273,8 @@ if (isset($_SESSION['admname'])) {
 
                 </div>
             </form>
-            <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-            </div>
+          <?php require '../footer.php' ?>
+            
         </div>
     </body>
 </html>

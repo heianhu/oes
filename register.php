@@ -85,14 +85,22 @@ if(isset($_REQUEST['stdsubmit']))
             echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
         }
         ?>
-      <div id="container">
-     <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
-            </div>
+     
+        <?php require 'header.php' ?>
+        
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>新用户注册</h2>       
+            </header>
+          </div>
+        </div>
           <div class="menubar">
               <?php if(!$success): ?>
 
-              <h2 style="text-align:center;color:#ffffff;">新用户注册</h2>
+            
               <?php endif; ?>
              
           </div>
@@ -107,7 +115,7 @@ if(isset($_REQUEST['stdsubmit']))
            /***************************** Step 2 ****************************/
           ?>
           <form id="admloginform"  action="register.php" method="post" onsubmit="return validateform('admloginform');">
-                   <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
+                   <table cellpadding="20" cellspacing="20" >
               <tr>
                   <td>用户名</td>
                   <td><input type="text" name="cname" value="" size="16" onkeyup="isalphanum(this)"/></td>
@@ -152,11 +160,9 @@ if(isset($_REQUEST['stdsubmit']))
             </table>
         </form>
        <?php } ?>
-      </div>
+        
+            <?php require 'footer.php' ?>
 
-<div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-      </div>
       </div>
   </body>
 </html>

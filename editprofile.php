@@ -82,12 +82,19 @@ else if(isset($_REQUEST['dashboard'])){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>编辑个人资料</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="oes.css"/>
-    <script type="text/javascript" src="validate.js" ></script>
-    </head>
+  
+  <?php require 'header.php' ?>
+
+
+<!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>个人资料</h2>       
+            </header>
+          </div>
+        </div>
+
   <body >
        <?php
 
@@ -111,7 +118,7 @@ else if(isset($_REQUEST['dashboard'])){
                         {
                            //editing components
                  ?>
-           <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
+           <table cellpadding="20" cellspacing="20"  >
               <tr>
                   <td>用户名</td>
                   <td><input type="text" name="cname" value="<?php echo htmlspecialchars_decode($r['stdname'],ENT_QUOTES); ?>" size="16" onkeyup="isalphanum(this)"/></td>
@@ -152,9 +159,10 @@ else if(isset($_REQUEST['dashboard'])){
                         <?php if(isset($_SESSION['stdname'])) {
                          // Navigations
                          ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
-                        <li><input type="submit" value="保存" name="savem" class="subbtn" onclick="validateform('editprofile')" title="Save the changes"/></li>
+                        
+                      <ul class="actions fit small">
+                        <li><input type="submit" value="保存" name="savem" class="button special" onclick="validateform('editprofile')" title="Save the changes"/></li>
+                     </ul>
                      
                
           </div>

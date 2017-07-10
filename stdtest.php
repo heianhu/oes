@@ -126,7 +126,16 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
         }
         ?>
         <?php require 'header.php' ?>
-        <div id="container">
+        
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>参加新测试</h2>       
+            </header>
+          </div>
+        </div>
 
             <form id="stdtest" action="stdtest.php" method="post">
                 <div class="menubar">
@@ -135,8 +144,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                         if (isset($_SESSION['stdname'])) {
                             // Navigations
                         ?>
-                            <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                            <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                           
 
 
                         </ul>

@@ -78,6 +78,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="oes.css"/>
   </head>
+  
   <body>
       <?php
 
@@ -89,23 +90,32 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
       
       <?php require 'header.php' ?>
 
-      <div id="container">
+      <!-- Main -->
+      
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>用户登陆</h2>       
+            </header>
+          </div>
+        </div>
 
      <form id="stdloginform" action="index.php" method="post">
       <div class="menubar">
        
-       <ul id="menu">
+       <ul id="menu" class="actions  small">
                     <?php if(isset($_SESSION['stdname'])){
                           header('Location: stdwelcome.php');}else{  
                           /***************************** Step 2 ****************************/
                         ?>
 
                       <!--  <li><input type="submit" value="Register" name="register" class="subbtn" title="Register"/></li>-->
-           <li><div class="aclass"><a href="register.php" title="Click here  to Register">Register</a></div></li>
+        
                         <?php } ?>
                     </ul>
 
       </div>
+                
       <div class="page">
               
               <table cellpadding="30" cellspacing="10">
@@ -121,8 +131,13 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
 
               <tr>
                   <td colspan="2">
-                      <input type="submit" tabindex="3" value="Log In" name="stdsubmit" class="subbtn" />
-                  </td><td></td>
+                      <input type="submit" tabindex="3" value="登录" name="stdsubmit" class="button" />
+                  
+                      
+                    <a href="register.php" class="button ">注册</a>
+
+                  </td>
+
               </tr>
             </table>
 
@@ -130,9 +145,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
       </div>
        </form>
 
-    <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-      </div>
+     <?php require 'footer.php' ?>
       </div>
   </body>
 </html>

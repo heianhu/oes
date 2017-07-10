@@ -81,22 +81,29 @@ else if(isset($_REQUEST['logout'])) {
         ?>
 <?php require 'admheader.php' ?>
 
-        <div id="container">
-
+        
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>测试结果管理</h2>       
+            </header>
+          </div>
+        </div>
             <form name="rsltmng" action="rsltmng.php" method="post">
                 <div class="menubar">
 
 
-                    <ul id="menu">
+                    <ul class="actions  small">
                         <?php if(isset($_SESSION['admname'])) {
                         // Navigations
 
                             ?>
-                        <li><input type="submit" value="LogOut" name="logout" class="subbtn" title="Log Out"/></li>
+                        
                             <?php  if(isset($_REQUEST['testid'])) { ?>
-                        <li><input type="submit" value="Back" name="back" class="subbtn" title="Manage Results"/></li>
+                        <li><input type="submit" value="Back" name="back" class="button small fit" title="Manage Results"/></li>
                             <?php }else { ?>
-                        <li><input type="submit" value="DashBoard" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                       
                             <?php } ?>
                     </ul>
                 </div>
@@ -110,7 +117,7 @@ else if(isset($_REQUEST['logout'])) {
 
                                 $r=mysql_fetch_array($result);
                                 ?>
-                    <table cellpadding="20" cellspacing="30" border="0" style="background:#ffffff url(../images/page.gif);text-align:left;line-height:20px;">
+                    <table cellpadding="20" cellspacing="30" border="0" >
                         <tr>
                             <td colspan="2"><h3 style="color:#0000cc;text-align:center;">Test Summary</h3></td>
                         </tr>
@@ -230,14 +237,10 @@ else if(isset($_REQUEST['logout'])) {
 
                 </div>
             </form>
-<<<<<<< HEAD
+
             <?php require '../footer.php' ?>
             
-=======
-            <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-      </div>
->>>>>>> master
+
       </div>
   </body>
 </html>

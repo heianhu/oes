@@ -195,20 +195,27 @@ if ($_GLOBALS['message']) {
     echo "<div class=\"message\">" . $_GLOBALS['message'] . "</div>";
 }
 ?>
-        <div id="container">
-            <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="../images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
-            </div>
+        
+        <?php require 'admheader.php' ?>
+        
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>参加新测试</h2>       
+            </header>
+          </div>
+        </div>
+
             <form name="prepqn" action="prepqn.php" method="post">
                 <div class="menubar">
 
 
-                    <ul id="menu">
+                    <ul id="menu" class="actions ">
 <?php
 if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
     // Navigations
 ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
                         <li><input type="submit" value="管理测试" name="managetests" class="subbtn" title="Manage Tests"/></li>
 
         <?php
@@ -227,8 +234,10 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                         <?php
                     } else {  //navigation for Default
                         ?>
-                        <li><input type="submit" value="删除" name="delete" class="subbtn" title="Delete"/></li>
-                        <li><input type="submit" value="添加" name="add" class="subbtn" title="Add"/></li>
+                        <li><input type="submit" value="添加" name="add" class="button" title="Add"/></li>
+                        
+                        <li><input type="submit" value="删除" name="delete" class="button" title="Delete"/></li>
+                        
                         <?php }
                 } ?>
                     </ul>

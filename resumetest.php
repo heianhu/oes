@@ -98,7 +98,14 @@ if($_GLOBALS['message']) {
 ?>
             <?php require 'header.php' ?>
 
-        <div id="container">
+      <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>恢复测试</h2>       
+            </header>
+          </div>
+        </div>
 
             <form id="summary" action="resumetest.php" method="post">
                 <div class="menubar">
@@ -106,8 +113,7 @@ if($_GLOBALS['message']) {
                     <?php if(isset($_SESSION['stdname'])) {
 // Navigations
                     ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="主面板" name="dashboard" class="subbtn" title="Dash Board"/></li>
+                       
 
                     </ul>
 
