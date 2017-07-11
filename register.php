@@ -95,8 +95,7 @@ if(isset($_REQUEST['stdsubmit']))
             <header class="major">
               <h2>新用户注册</h2>       
             </header>
-          </div>
-        </div>
+         
           <div class="menubar">
               <?php if(!$success): ?>
 
@@ -162,7 +161,8 @@ if(isset($_REQUEST['stdsubmit']))
        <?php } ?>
         
             <?php require 'footer.php' ?>
-
+ </div>
+        </div>
       </div>
   </body>
 </html>
