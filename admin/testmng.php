@@ -187,8 +187,7 @@ if ($_GLOBALS['message']) {
             <header class="major">
               <h2>准备题目</h2>       
             </header>
-          </div>
-        </div>
+       
 
             <form name="testmng" action="testmng.php" method="post">
                 <div class="menubar">
@@ -235,7 +234,7 @@ if (isset($_SESSION['admname'])) {
         /*         * ************************ Step 3 - Case 1 ************************ */
         //Form for the new Test
 ?>
-                    <table cellpadding="20" cellspacing="20" style="text-align:left;" >
+                    <table cellpadding="20" cellspacing="20" >
                         <tr>
                             <td>科目名</td>
                             <td>
@@ -302,7 +301,7 @@ if (isset($_SESSION['admname'])) {
 
             //editing components
 ?>
-                    <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em" >
+                    <table cellpadding="20" cellspacing="20"  >
                         <tr>
                             <td>科目名</td>
                             <td>
@@ -374,7 +373,7 @@ if (isset($_SESSION['admname'])) {
 ?>
                                     <table cellpadding="30" cellspacing="10" class="datatable">
                                         <tr>
-                                            <th>&nbsp;</th>
+                                            <th>选择</th>
                                             <th>描述</th>
                                             <th>科目名</th>
                                             <th>测试密码</th>
@@ -389,7 +388,7 @@ if (isset($_SESSION['admname'])) {
                                             echo "<tr class=\"alt\">";
                                         else
                                             echo "<tr>";
-                                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" value=\"" . $r['testid'] . "\" /></td><td> " . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . " : " . htmlspecialchars_decode($r['testdesc'], ENT_QUOTES)
+                                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" id=\"d$i\" value=\"" . $r['testid'] . "\" /><label for=\"d$i\"></label></td><td> " . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . " : " . htmlspecialchars_decode($r['testdesc'], ENT_QUOTES)
                                         . "</td><td>" . htmlspecialchars_decode($r['subname'], ENT_QUOTES) . "</td><td>" . htmlspecialchars_decode($r['tcode'], ENT_QUOTES) . "</td><td>" . $r['testfrom'] . " To " . $r['testto'] . "</td>"
                                         . "<td class=\"tddata\"><a title=\"Edit " . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . "\"href=\"testmng.php?edit=" . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . "\"><img src=\"../images/edit.png\" height=\"30\" width=\"40\" alt=\"Edit\" /></a></td>"
                                         . "<td class=\"tddata\"><a title=\"Manage Questions of " . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . "\"href=\"testmng.php?manageqn=" . htmlspecialchars_decode($r['testname'], ENT_QUOTES) . "\"><img src=\"../images/mngqn.png\" height=\"30\" width=\"40\" alt=\"Manage Questions\" /></a></td></tr>";
@@ -405,6 +404,8 @@ if (isset($_SESSION['admname'])) {
 
                 </div>
             </form>
+               </div>
+        </div>
             <?php require '../footer.php' ?>
 
         </div>

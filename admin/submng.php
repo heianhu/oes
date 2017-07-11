@@ -142,8 +142,7 @@ if ($_GLOBALS['message']) {
             <header class="major">
               <h2>管理科目</h2>       
             </header>
-          </div>
-        </div>
+        
 
             <form name="submng" action="submng.php" method="post">
                 <div class="menubar">
@@ -245,7 +244,7 @@ if (isset($_SESSION['admname'])) {
 ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>&nbsp;</th>
+                            <th>选择</th>
                             <th>科目名</th>
                             <th>科目描述</th>
                             <th>编辑</th>
@@ -258,7 +257,7 @@ if (isset($_SESSION['admname'])) {
                         } else {
                             echo "<tr>";
                         }
-                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" value=\"" . $r['subid'] . "\" /></td><td>" . htmlspecialchars_decode($r['subname'], ENT_QUOTES)
+                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" id=\"d$i\" value=\"" . $r['subid'] . "\" /><label for=\"d$i\"></label></td><td>" . htmlspecialchars_decode($r['subname'], ENT_QUOTES)
                         . "</td><td>" . htmlspecialchars_decode($r['subdesc'], ENT_QUOTES) . "</td>"
                         . "<td class=\"tddata\"><a title=\"Edit " . htmlspecialchars_decode($r['stdname'], ENT_QUOTES) . "\"href=\"submng.php?edit=" . htmlspecialchars_decode($r['subname'], ENT_QUOTES) . "\"><img src=\"../images/edit.png\" height=\"30\" width=\"40\" alt=\"Edit\" /></a></td></tr>";
                     }
@@ -273,6 +272,8 @@ if (isset($_SESSION['admname'])) {
 
                 </div>
             </form>
+              </div>
+        </div>
           <?php require '../footer.php' ?>
             
         </div>

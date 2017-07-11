@@ -134,8 +134,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
             <header class="major">
               <h2>参加新测试</h2>       
             </header>
-          </div>
-        </div>
+         
 
             <form id="stdtest" action="stdtest.php" method="post">
                 <div class="menubar">
@@ -215,7 +214,8 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                 </div>
 
             </form>
-
+ </div>
+        </div>
             <?php require 'footer.php' ?>
 
         </div>

@@ -57,7 +57,7 @@
                             <li><a href="resumetest.php">恢复测试</a></li>
                             <li><a href="viewresult.php">察看结果</a></li>
                             <li><a href="editprofile.php?edit=edit'}" class="button special">个人</a>
-                                 <ul>
+                                 <ul >
                                  <form name="admwelcome" action="stdwelcome.php" method="post">    
                         <?php if(isset($_SESSION['stdname'])){ ?>
                         <li><input type="submit" class=" special small fit" value="登出" name="logout"  title="Log Out"/></li>

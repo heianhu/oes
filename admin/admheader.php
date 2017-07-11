@@ -35,7 +35,7 @@
 
 
          <header id="header">
-                    <h1 id="logo"><a href="index.php">网络测试系统</a></h1>
+                    <h1 id="logo"><a href="../index.php">网络测试系统</a></h1>
 
                      <?php
                         if (isset($_SESSION['admname'])) {?>
@@ -67,7 +67,7 @@
                             <form name="admwelcome" action="admwelcome.php" method="post" >
                    
                         <?php if(isset($_SESSION['admname'])){ ?>
-                        <li><input type="submit" class="button special" value="登出" name="logout"  title="Log Out"/></li>
+                        <li><input type="submit" class="button special small" value="登出" name="logout"  title="Log Out"/></li>
                         <?php } ?>
                     
                 </form>

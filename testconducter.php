@@ -189,13 +189,21 @@ header("Cache-Control: no-cache, must-revalidate");
             echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
         }
         ?>
-      <div id="container">
-      <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
-            </div>
+      
+
+ <?php require 'header.php' ?>
+        
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>参加新测试</h2>       
+            </header>
+
            <form id="testconducter" action="testconducter.php" method="post">
           <div class="menubar" style="text-align:center;">
-              <h2 style="font-family:helvetica,sans-serif;font-weight:bolder;font-size:120%;color:#f50000;padding-top:0.3em;letter-spacing:1px;">测试导体</h2>
+              <h2 >测试导体</h2>
           </div>
       <div class="page">
           <?php
@@ -209,25 +217,25 @@ header("Cache-Control: no-cache, must-revalidate");
           ?>
           <div class="tc">
 
-              <table border="0" width="100%" class="ntab">
+              <table  >
                   <tr>
-                      <th style="width:40%;"><h3><span id="timer" class="timerclass"></span></h3></th>
-                      <th style="width:40%;"><h4 style="color: #af0a36;">问题号: <?php echo $_SESSION['qn']; ?> </h4></th>
-                      <th style="width:20%;"><h4 style="color: #af0a36;"><input type="checkbox" name="markreview" value="mark"> 标记以供审阅</input></h4></th>
+                      <th ></span></h3></th>
+                      <th >问题号: <?php echo $_SESSION['qn']; ?> </h4></th>
+                      <th ><input type="checkbox" name="markreview" id="markreview" value="mark"> </input><label for="markreview">标记以供审阅</label></h4></th>
                   </tr>
               </table>
-             <textarea cols="100" rows="8" name="question" readonly style="width:96.8%;text-align:left;margin-left:2%;margin-top:2px;font-size:120%;font-weight:bold;margin-bottom:0;color:#0000ff;padding:2px 2px 2px 2px;"><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea>
+             <textarea cols="100" rows="8" name="question" readonly ><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea>
               <table border="0" width="100%" class="ntab">
                   <tr><td>&nbsp;</td></tr>
-                  <tr><td >1. <input type="radio" name="answer" value="optiona" <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiona")==0 ){echo "checked";} ?>> <?php echo htmlspecialchars_decode($r['optiona'],ENT_QUOTES); ?></input></td></tr>
-                  <tr><td >2. <input type="radio" name="answer" value="optionb" <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionb")==0 ){echo "checked";} ?>> <?php echo htmlspecialchars_decode($r['optionb'],ENT_QUOTES); ?></input></td></tr>
-                  <tr><td >3. <input type="radio" name="answer" value="optionc" <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionc")==0 ){echo "checked";} ?>> <?php echo htmlspecialchars_decode($r['optionc'],ENT_QUOTES); ?></input></td></tr>
-                  <tr><td >4. <input type="radio" name="answer" value="optiond" <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiond")==0 ){echo "checked";} ?>> <?php echo htmlspecialchars_decode($r['optiond'],ENT_QUOTES); ?></input></td></tr>
+                  <tr><td >1. <input type="radio" name="answer" id="answera" value="optiona" </input><label for="answera"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiona")==0 ){echo "checked";} ?><?php echo htmlspecialchars_decode($r['optiona'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >2. <input type="radio" name="answer" id="answerb" value="optionb" </input><label for="answerb"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionb")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optionb'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >3. <input type="radio" name="answer" id="answerc" value="optionc" </input><label for="answerc"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionc")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optionc'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >4. <input type="radio" name="answer" id="answerd" value="optiond"</input><label for="answerd"> <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiond")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optiond'],ENT_QUOTES); ?></label></td></tr>
                   <tr><td>&nbsp;</td></tr>
                   <tr>
-                      <th style="width:80%;"><h4><input type="submit" name="<?php if($final==true){ echo "viewsummary" ;}else{ echo "next";} ?>" value="<?php if($final==true){ echo "View Summary" ;}else{ echo "Next";} ?>" class="subbtn"/></h4></th>
-                      <th style="width:12%;text-align:right;"><h4><input type="submit" name="previous" value="Previous" class="subbtn"/></h4></th>
-                      <th style="width:8%;text-align:right;"><h4><input type="submit" name="summary" value="Summary" class="subbtn" /></h4></th>
+                      <th ><h4><input type="submit" name="<?php if($final==true){ echo "viewsummary" ;}else{ echo "next";} ?>" value="<?php if($final==true){ echo "View Summary" ;}else{ echo "Next";} ?>" class="subbtn"/></h4></th>
+                      <th ><h4><input type="submit" name="previous" value="Previous" class="subbtn"/></h4></th>
+                      <th ><h4><input type="submit" name="summary" value="Summary" class="subbtn" /></h4></th>
                   </tr>
                   
               </table>
@@ -241,10 +249,10 @@ header("Cache-Control: no-cache, must-revalidate");
       </div>
 
            </form>
-     <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
+    
       </div>
       </div>
+      <?php require 'footer.php' ?>
   </body>
 </html>
 

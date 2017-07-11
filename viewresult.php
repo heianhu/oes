@@ -67,8 +67,7 @@ else if(isset($_REQUEST['logout'])) {
             <header class="major">
               <h2>查看结果</h2>       
             </header>
-          </div>
-        </div>
+          
             
             <form id="summary" action="viewresult.php" method="post">
                 <div class="menubar">
@@ -283,6 +282,8 @@ else if(isset($_REQUEST['logout'])) {
         </div>
 
             </form>
+            </div>
+        </div>
             <?php require 'footer.php' ?>
 
   </body>

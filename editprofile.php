@@ -92,8 +92,7 @@ else if(isset($_REQUEST['dashboard'])){
             <header class="major">
               <h2>个人资料</h2>       
             </header>
-          </div>
-        </div>
+          
 
   <body >
        <?php
@@ -175,6 +174,8 @@ else if(isset($_REQUEST['dashboard'])){
       </div>
 
            </form>
+           </div>
+        </div>
       <?php require 'footer.php' ?>
 
       </div>

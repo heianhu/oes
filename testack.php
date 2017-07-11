@@ -58,10 +58,16 @@ if(isset($_SESSION['starttime']))
             echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
         }
         ?>
-      <div id="container">
-      <div class="header">
-                <img style="margin:10px 2px 2px 10px;float:left;" height="80" width="200" src="images/logo.gif" alt="OES"/><h3 class="headtext"> &nbsp;在线考试系统 </h3><h4 style="color:#ffffff;text-align:center;margin:0 0 5px 5px;"><i>...因为 考试 很重要</i></h4>
-            </div>
+     
+
+       <?php require 'header.php' ?>
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+          <div class="container">
+            <header class="major">
+              <h2>summary</h2>       
+            </header>
            <form id="editprofile" action="editprofile.php" method="post">
           <div class="menubar">
                <ul id="menu">
@@ -82,10 +88,9 @@ if(isset($_SESSION['starttime']))
       </div>
 
            </form>
-     <div id="footer">
-          <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-      </div>
-      </div>
+     </div>
+       <?php require 'footer.php' ?>
+            </div>
   </body>
 </html>
 

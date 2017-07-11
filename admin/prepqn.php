@@ -202,7 +202,7 @@ if ($_GLOBALS['message']) {
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>参加新测试</h2>       
+              <h2>题目管理</h2>       
             </header>
           </div>
         </div>
@@ -216,7 +216,7 @@ if ($_GLOBALS['message']) {
 if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
     // Navigations
 ?>
-                        <li><input type="submit" value="管理测试" name="managetests" class="subbtn" title="Manage Tests"/></li>
+                        <li><input type="submit" value="BACK" name="managetests" class="subbtn" title="Manage Tests"/></li>
 
         <?php
         //navigation for Add option
@@ -392,7 +392,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                             echo "<tr class=\"alt\">";
                                         else
                                             echo "<tr>";
-                                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" value=\"" . $r['qnid'] . "\" /></td><td> " . $i
+                                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" id=\"d$i\" value=\"" . $r['qnid'] . "\" /><label for=\"d$i\"></label></td><td> " . $i
                                         . "</td><td>" . htmlspecialchars_decode($r['question'],ENT_QUOTES) . "</td><td>" . htmlspecialchars_decode($r[htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES)],ENT_QUOTES) . "</td><td>" . htmlspecialchars_decode($r['marks'],ENT_QUOTES) . "</td>"
                                         . "<td class=\"tddata\"><a title=\"Edit " . $r['qnid'] . "\"href=\"prepqn.php?edit=" . $r['qnid'] . "\"><img src=\"../images/edit.png\" height=\"30\" width=\"40\" alt=\"Edit\" /></a>"
                                         . "</td></tr>";

@@ -90,10 +90,9 @@ Step 2: IF POST array has some varibles then, perform authentication.
             <header class="major">
               <h2>管理员登陆</h2>       
             </header>
-          </div>
-        </div>
+        
 
-      <div id="container">
+     
 
       <div class="menubar">
         &nbsp;
@@ -122,7 +121,7 @@ Step 2: IF POST array has some varibles then, perform authentication.
 
       </div>
 
-
+        </div>
 
             <?php require '../footer.php' ?>
 

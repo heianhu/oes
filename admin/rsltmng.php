@@ -88,8 +88,7 @@ else if(isset($_REQUEST['logout'])) {
             <header class="major">
               <h2>测试结果管理</h2>       
             </header>
-          </div>
-        </div>
+        
             <form name="rsltmng" action="rsltmng.php" method="post">
                 <div class="menubar">
 
@@ -237,7 +236,8 @@ else if(isset($_REQUEST['logout'])) {
 
                 </div>
             </form>
-
+  </div>
+        </div>
             <?php require '../footer.php' ?>
             
 

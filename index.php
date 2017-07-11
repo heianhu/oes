@@ -97,8 +97,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
             <header class="major">
               <h2>用户登陆</h2>       
             </header>
-          </div>
-        </div>
+        
 
      <form id="stdloginform" action="index.php" method="post">
       <div class="menubar">
@@ -144,7 +143,8 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
 
       </div>
        </form>
-
+  </div>
+        </div>
      <?php require 'footer.php' ?>
       </div>
   </body>
