@@ -3,7 +3,16 @@
 -- Host: localhost    Database: oes
 -- ------------------------------------------------------
 -- Server version	5.1.40-community
-
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 --
 -- 当前数据库：`oes`
 --
@@ -17,6 +26,8 @@ USE `oes`;
 --
 
 DROP TABLE IF EXISTS `adminlogin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `adminlogin` (
   `admname` varchar(32) NOT NULL,
   `admpassword` varchar(32) DEFAULT NULL,
@@ -39,6 +50,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `question` (
   `testid` bigint(20) NOT NULL DEFAULT '0',
   `qnid` int(11) NOT NULL DEFAULT '0',
@@ -52,6 +65,7 @@ CREATE TABLE `question` (
   PRIMARY KEY (`testid`,`qnid`),
   CONSTRAINT `question_ibfk_1` FOREIGN KEY (`testid`) REFERENCES `test` (`testid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -68,6 +82,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `student` (
   `stdid` bigint(20) NOT NULL,
   `stdname` varchar(40) DEFAULT NULL,
@@ -81,6 +97,7 @@ CREATE TABLE `student` (
   UNIQUE KEY `stdname` (`stdname`),
   UNIQUE KEY `emailid` (`emailid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -97,6 +114,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `studentquestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `studentquestion` (
   `stdid` bigint(20) NOT NULL DEFAULT '0',
   `testid` bigint(20) NOT NULL DEFAULT '0',
@@ -108,6 +127,7 @@ CREATE TABLE `studentquestion` (
   CONSTRAINT `studentquestion_ibfk_1` FOREIGN KEY (`stdid`) REFERENCES `student` (`stdid`),
   CONSTRAINT `studentquestion_ibfk_2` FOREIGN KEY (`testid`, `qnid`) REFERENCES `question` (`testid`, `qnid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -124,6 +144,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `studenttest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `studenttest` (
   `stdid` bigint(20) NOT NULL DEFAULT '0',
   `testid` bigint(20) NOT NULL DEFAULT '0',
@@ -136,6 +158,7 @@ CREATE TABLE `studenttest` (
   CONSTRAINT `studenttest_ibfk_1` FOREIGN KEY (`stdid`) REFERENCES `student` (`stdid`),
   CONSTRAINT `studenttest_ibfk_2` FOREIGN KEY (`testid`) REFERENCES `test` (`testid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -153,6 +176,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `testconductor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `testconductor` (
   `tcid` bigint(20) NOT NULL,
   `tcname` varchar(40) DEFAULT NULL,
@@ -166,6 +191,7 @@ CREATE TABLE `testconductor` (
   UNIQUE KEY `stdname` (`tcname`),
   UNIQUE KEY `emailid` (`emailid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -182,6 +208,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `subject`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subject` (
   `subid` int(11) NOT NULL,
   `subname` varchar(40) DEFAULT NULL,
@@ -191,6 +219,7 @@ CREATE TABLE `subject` (
   UNIQUE KEY `subname` (`subname`),
   CONSTRAINT `subject_fk1` FOREIGN KEY (`tcid`) REFERENCES `testconductor` (`tcid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -207,6 +236,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `test` (
   `testid` bigint(20) NOT NULL,
   `testname` varchar(30) NOT NULL,
@@ -226,6 +257,7 @@ CREATE TABLE `test` (
   CONSTRAINT `test_fk1` FOREIGN KEY (`subid`) REFERENCES `subject` (`subid`),
   CONSTRAINT `test_fk2` FOREIGN KEY (`tcid`) REFERENCES `testconductor` (`tcid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- 转储表“test”的数据
