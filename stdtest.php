@@ -177,7 +177,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                             } else {
                                 $result = executeQuery("select t.*,s.subname from test as t, subject as s where s.subid=t.subid and CURRENT_TIMESTAMP<t.testto and t.totalquestions=(select count(*) from question where testid=t.testid) and NOT EXISTS(select stdid,testid from studenttest where testid=t.testid and stdid=" . $_SESSION['stdid'] . ");");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">抱歉...！ 在这一刻，你没有提供任何测试。</h3>";
+                                    echo"<h3 style=\"text-align:center;\">抱歉...！ 在这一刻，你没有提供任何测试。</h3>";
                                 } else {
                                     //editing components
                     ?>

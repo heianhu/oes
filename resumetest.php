@@ -153,7 +153,7 @@ if($_GLOBALS['message']) {
 
         $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(st.starttime,'%d %M %Y %H:%i:%s') as startt,sub.subname as sname,TIMEDIFF(st.endtime,CURRENT_TIMESTAMP) as remainingtime from subject as sub,studenttest as st,test as t where sub.subid=t.subid and t.testid=st.testid and st.stdid=".$_SESSION['stdid']." and st.status='inprogress' order by st.starttime desc;");
         if(mysql_num_rows($result)==0) {
-            echo"<h3 style=\"color:#0000cc;text-align:center;\">没有可恢复的未完成测试，请重试..!</h3>";
+            echo"<h3 style=\"text-align:center;\">没有可恢复的未完成测试，请重试..!</h3>";
         }
         else {
         //editing components

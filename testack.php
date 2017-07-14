@@ -81,7 +81,7 @@ if(isset($_SESSION['starttime']))
                </ul>
           </div>
       <div class="page">
-          <h3 style="color:#0000cc;text-align:center;">你的结果已成功提交！查看结果<b><a href="viewresult.php">点此</a></b> </h3>
+          <h3 style="button small fittext-align:center;">你的结果已成功提交！查看结果<b><a href="viewresult.php">点此</a></b> </h3>
           <?php
                         }
           ?>

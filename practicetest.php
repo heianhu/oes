@@ -197,7 +197,7 @@ if (isset($_SESSION['stdname'])) {
 ?>
                     <table cellpadding="20" cellspacing="30" border="0" style="background:#ffffff url(images/page.gif);text-align:left;line-height:20px;">
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">测试结果</h3></td>
+                            <td colspan="2"><h3 style="button small fittext-align:center;">测试结果</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -241,7 +241,7 @@ if (isset($_SESSION['stdname'])) {
                             <td colspan="2" ><hr style="color:#ff0000;border-width:2px;"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">详细测试信息</h3></td>
+                            <td colspan="2"><h3 style="button small fittext-align:center;">详细测试信息</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>

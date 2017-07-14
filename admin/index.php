@@ -94,16 +94,13 @@ Step 2: IF POST array has some varibles then, perform authentication.
 
      
 
-      <div class="menubar">
-        &nbsp;
-      </div>
+      
       <div class="page">
               <form id="indexform" action="index.php" method="post">
-              <table cellpadding="30" cellspacing="10">
+              <table align="center">
               <tr>
                   <td>管理员名称</td>
                   <td><input type="text" name="name" value="" size="16" /></td>
-
               </tr>
               <tr>
                   <td> 密码</td>
@@ -111,9 +108,9 @@ Step 2: IF POST array has some varibles then, perform authentication.
               </tr>
 
               <tr>
-                  <td colspan="2">
-                      <input type="submit" value="登录" name="admsubmit" class="button  special" />
-                  </td><td></td>
+                  <td colspan="2" align="center">
+                      <input type="submit" value="登录" name="admsubmit" class="button  special  " />
+                  </td>
               </tr>
             </table>
 

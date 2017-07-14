@@ -105,7 +105,7 @@ else if(isset($_REQUEST['logout'])) {
                                 ?>
                     <table cellpadding="20" cellspacing="30" border="0"  url(images/page.gif);text-align:left;line-height:20px;">
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">测试总结</h3></td>
+                            <td colspan="2"><h3 style="button small fittext-align:center;">测试总结</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -146,7 +146,7 @@ else if(isset($_REQUEST['logout'])) {
                             <td colspan="2" ><hr style="color:#ff0000;border-width:2px;"/></td>
                         </tr>
                          <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">测试详情</h3></td>
+                            <td colspan="2"><h3 style="button small fittext-align:center;">测试详情</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -157,7 +157,7 @@ else if(isset($_REQUEST['logout'])) {
                                 $result1=executeQuery("select q.qnid as questionid,q.question as quest,q.correctanswer as ca,sq.answered as status,sq.stdanswer as sa from studentquestion as sq,question as q where q.qnid=sq.qnid and sq.testid=q.testid and sq.testid=".$_REQUEST['details']." and sq.stdid=".$_SESSION['stdid']." order by q.qnid;" );
 
                                 if(mysql_num_rows($result1)==0) {
-                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">1.Sorry because of some problems Individual questions Cannot be displayed.</h3>";
+                                    echo"<h3 style=\"button small fittext-align:center;\">1.Sorry because of some problems Individual questions Cannot be displayed.</h3>";
                                 }
                                 else {
                                     ?>
@@ -197,14 +197,14 @@ else if(isset($_REQUEST['logout'])) {
                             <?php
                                                 }
                                                 else {
-                                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">Sorry because of some problems Individual questions Cannot be displayed.</h3>".mysql_error();
+                                                    echo"<h3 style=\"button small fittext-align:center;\">Sorry because of some problems Individual questions Cannot be displayed.</h3>".mysql_error();
                                                 }
                                             }
 
                                         }
                                     }
                                     else {
-                                        echo"<h3 style=\"color:#0000cc;text-align:center;\">Something went wrong. Please logout and Try again.</h3>".mysql_error();
+                                        echo"<h3 style=\"button small fittext-align:center;\">Something went wrong. Please logout and Try again.</h3>".mysql_error();
                                     }
                                     ?>
                     </table>
@@ -216,7 +216,7 @@ else if(isset($_REQUEST['logout'])) {
 
                             $result=executeQuery("select st.*,t.testname,t.testdesc,DATE_FORMAT(st.starttime,'%d %M %Y %H:%i:%s') as startt from studenttest as st,test as t where t.testid=st.testid and st.stdid=".$_SESSION['stdid']." and st.status='over' order by st.testid;");
                             if(mysql_num_rows($result)==0) {
-                                echo"<h3 style=\"color:#0000cc;text-align:center;\">我认为你还没有尝试任何考试. . !请您尝试后再试一次。</h3>";
+                                echo"<h3 style=\"button small fittext-align:center;\">我认为你还没有尝试任何考试. . !请您尝试后再试一次。</h3>";
                             }
                             else {
                             //editing components

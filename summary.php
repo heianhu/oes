@@ -135,7 +135,7 @@ else if(isset($_REQUEST['dashboard'])){
 
                         $result=executeQuery("select * from studentquestion where testid=".$_SESSION['testid']." and stdid=".$_SESSION['stdid']." order by qnid ;");
                         if(mysql_num_rows($result)==0) {
-                          echo"<h3 style=\"color:#0000cc;text-align:center;\">请再次尝试</h3>";
+                          echo"<h3 style=\"button small fittext-align:center;\">请再次尝试</h3>";
                         }
                         else
                         {
