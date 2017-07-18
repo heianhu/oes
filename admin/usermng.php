@@ -1,15 +1,4 @@
-
 <?php
-/*
- * **************************************************
- * ** 在线考试系统                   ***
- * **---------------------------------------------***
- * ** License: GNU General Public License V.3     ***
- * ** Author: Manjunath Baddi                     ***
- * ** Title: Users Management(Add,delete,Modify)  ***
- * **************************************************
- */
-
 /* Procedure
  * ********************************************
 
@@ -127,7 +116,7 @@ else if (isset($_REQUEST['savea'])) {
 ?>
 <html>
     <head>
-        <title>OES-Manage Users</title>
+        <title>OES-管理用户</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../oes.css"/>
         <script type="text/javascript" src="../validate.js" ></script>

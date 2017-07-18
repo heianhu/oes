@@ -1,19 +1,4 @@
-
-
-
-
  <?php
-
- /*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title:  Student Authentication              ***
-***************************************************
-*/
-
  /* Procedure
 *********************************************
 
@@ -77,6 +62,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
     <title>在线考试系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="oes.css"/>
+	<script type="text/javascript" src="validate.js" ></script>
   </head>
   
   <body>
@@ -84,7 +70,8 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
 
         if($_GLOBALS['message'])
         {
-         echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+			//echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+			echo "<script type='text/javascript'>alert(".$_GLOBALS['message'].");</script>";
         }
       ?>
       

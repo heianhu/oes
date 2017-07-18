@@ -1,18 +1,4 @@
-
-
-
 <?php
-
-/*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Test Conductor                       ***
-***************************************************
-*/
-
 error_reporting(0);
 session_start();
 include_once 'oesdb.php';
@@ -144,7 +130,7 @@ header("Cache-Control: no-cache, must-revalidate");
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>OES-Test Conducter</title>
+    <title>测试导体</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
     <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -167,7 +153,7 @@ header("Cache-Control: no-cache, must-revalidate");
                     }
                     else
                     {
-                        $_GLOBALS['message']="Try Again";
+                        $_GLOBALS['message']="请再次尝试";
                     }
                     closedb();
                 }

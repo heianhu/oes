@@ -1,16 +1,4 @@
-
-
 <?php
-/*
-****************************************************
-*** 在线考试系统                    ***
-***----------------------------------------------***
-*** License: GNU General Public License V.3      ***
-*** Author: Manjunath Baddi                      ***
-*** Title: Student Registration                  ***
-****************************************************
-*/
-
  /* Procedure
 *********************************************
 
@@ -82,7 +70,8 @@ if(isset($_REQUEST['stdsubmit']))
        <?php
 
         if($_GLOBALS['message']) {
-            echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+            //echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+			echo "<script type='text/javascript'>alert(".$_GLOBALS['message'].");</script>";
         }
         ?>
      

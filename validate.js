@@ -10,7 +10,7 @@
                     var r=/\W$/i;
                     if(r.test(ele.value))
                      {
-                         alert("This Field allows Only Alpha Numeric characters.");
+                         alert("此字段仅允许字母数字字符。");
                          ele.value="";
                          ele.focus();
                      }
@@ -20,7 +20,7 @@
                     var r=/[^a-zA-Z]+/i;
                     if(r.test(ele.value))
                      {
-                         alert("This Field allows Only Alphabets.");
+                         alert("此字段只允许字母。");
                          ele.value="";
                          ele.focus();
                      }
@@ -30,7 +30,7 @@
                     var r=/\D$/i;
                     if(r.test(ele.value))
                      {
-                         alert("This Field allows Only Numerics.");
+                         alert("此字段只允许数字。");
                          ele.value="";
                          ele.focus();
                      }
@@ -42,19 +42,19 @@
                     myform=document.forms[mmyform];
                     if(myform.cname.value=="" || myform.password.value=="" || myform.repass.value=="" || myform.email.value=="" || myform.contactno.value=="" || myform.address.value=="" || myform.city.value=="" || myform.pin.value=="")
                      {
-                         alert("Some of the fields are Empty.");
+                         alert("一些字段为空。");
                          return false;
                          //  myform.onsubmit=false;
                      }
                      else if(myform.password.value!=myform.repass.value)
                          {
-                             alert("Passwords Donot Match!");
+                             alert("密码不匹配！");
                             // myform.onsubmit=false;
                             return false;
                          }
                          else if(!em.test(myform.email.value))
                              {
-                                 alert("Enter the E-mail Correctly!");
+                                 alert("请输入正确的电子邮件！");
                                //  myform.onsubmit=false;
                                  return false;
                              }
@@ -68,7 +68,7 @@
                     myform=document.forms[mmyform];
                     if(myform.subname.value=="" || myform.subdesc.value=="")
                      {
-                         alert("Some of the fields are Empty.");
+                         alert("一些字段为空。");
                          myform.onSubmit=false;
                      }
                      
@@ -84,7 +84,10 @@
                      }
 */
                 }
-
+                function showerror(ele)
+                {
+					alert(ele);
+                }
   /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.

@@ -1,19 +1,6 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <?php
-
-/*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Resume Test                          ***
-***************************************************
-*/
-
 error_reporting(0);
 session_start();
 include_once 'oesdb.php';

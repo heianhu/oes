@@ -1,15 +1,4 @@
-
 <?php
-/*
- * ***********************************************************
- * ** 在线考试系统                            ***
- * **----------------------------------------------------  ***
- * ** License: GNU General Public License V.3              ***
- * ** Author: Manjunath Baddi                              ***
- * ** Title: TestConductors Management(Add,delete,Modify)  ***
- * ***********************************************************
- */
-
 /* Procedure
  * ********************************************
 
@@ -124,7 +113,7 @@ else if (isset($_REQUEST['savea'])) {
 ?>
 <html>
     <head>
-        <title>OES-Manage Test Conductors</title>
+        <title>OES-管理测试导体</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../oes.css"/>
         <script type="text/javascript" src="../validate.js" ></script>
