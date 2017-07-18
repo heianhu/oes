@@ -64,7 +64,7 @@ Step 2: IF POST array has some varibles then, perform authentication.
       
         if(isset($_GLOBALS['message']))
         {
-         echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+         echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
       ?>
 

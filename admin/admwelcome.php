@@ -1,4 +1,15 @@
 <?php
+
+/*
+***************************************************
+*** 在线考试系统                   ***
+***---------------------------------------------***
+*** License: GNU General Public License V.3     ***
+*** Author: Manjunath Baddi                     ***
+*** Title: Admin Welcome                        ***
+***************************************************
+*/
+
 /* Procedure
 *********************************************
  * ----------- *
@@ -36,7 +47,7 @@ session_start();
         <?php
        /********************* Step 2 *****************************/
         if(isset($_GLOBALS['message'])) {
-            echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+            echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
         ?>
 

@@ -89,7 +89,7 @@ else if(isset($_REQUEST['dashboard'])){
        <?php
 
         if($_GLOBALS['message']) {
-            echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+            echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
         ?>
       

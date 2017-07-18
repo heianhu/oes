@@ -109,7 +109,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
     <body >
         <?php
         if ($_GLOBALS['message']) {
-            echo "<div class=\"message\">" . $_GLOBALS['message'] . "</div>";
+            echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
         ?>
         <?php require 'header.php' ?>

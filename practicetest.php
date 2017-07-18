@@ -121,7 +121,7 @@ if (!isset($_REQUEST['finalsumbit']) && isset($_SESSION['starttime'])) {
         <noscript><h2>您必须使用支持Javascript的浏览器才能使用正确的功能</h2></noscript>
 <?php
 if ($_GLOBALS['message']) {
-    echo "<div class=\"message\">" . $_GLOBALS['message'] . "</div>";
+    echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
 }
 ?>
         <div id="container">

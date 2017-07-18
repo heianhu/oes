@@ -172,7 +172,7 @@ header("Cache-Control: no-cache, must-revalidate");
        <?php
 
         if($_GLOBALS['message']) {
-            echo "<div class=\"message\">".$_GLOBALS['message']."</div>";
+            echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
         ?>
       
