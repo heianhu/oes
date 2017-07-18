@@ -1,15 +1,4 @@
-
 <?php
-/*
- * ***************************************************
- * ** 在线考试系统                    ***
- * **----------------------------------------------***
- * ** License: GNU General Public License V.3      ***
- * ** Author: Manjunath Baddi                      ***
- * ** Title: Prepare Questions(Add,delete,Modify)  ***
- * ***************************************************
- */
-
 /* Procedure
  * ********************************************
 
@@ -144,7 +133,7 @@ else if (isset($_REQUEST['savea'])) {
 ?>
 <html>
     <head>
-        <title>OES-Manage Questions</title>
+        <title>OES-管理问题</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../oes.css"/>
         <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>

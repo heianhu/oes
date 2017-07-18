@@ -1,16 +1,4 @@
-
 <?php
-
-/*
-****************************************************
-*** 在线考试系统                    ***
-***----------------------------------------------***
-*** License: GNU General Public License V.3      ***
-*** Author: Manjunath Baddi                      ***
-*** Title: Results Management                    ***
-****************************************************
-*/
-
 /* Procedure
 *********************************************
 
@@ -67,7 +55,7 @@ else if(isset($_REQUEST['logout'])) {
 ?>
 <html>
     <head>
-        <title>OES-Manage Results</title>
+        <title>OES-管理结果</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../oes.css"/>
 

@@ -1,16 +1,4 @@
-
-
 <?php
-/*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Student Welcome                      ***
-***************************************************
-*/
-
 error_reporting(0);
 session_start();
         if(!isset($_SESSION['stdname'])){

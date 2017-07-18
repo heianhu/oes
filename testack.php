@@ -1,18 +1,4 @@
-
-
-
 <?php
-
-/*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title:  Test Completion Acknowledgement     ***
-***************************************************
-*/
-
 error_reporting(0);
 session_start();
 include_once 'oesdb.php';

@@ -1,17 +1,4 @@
-
-
 <?php
-
-/*
-***************************************************
-*** 在线考试系统                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Summary Report                       ***
-***************************************************
-*/
-
 error_reporting(0);
 session_start();
 include_once 'oesdb.php';
@@ -112,7 +99,7 @@ else if(isset($_REQUEST['dashboard'])){
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>summary</h2>       
+              <h2>概要</h2>       
             </header>
            
 
