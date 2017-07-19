@@ -193,8 +193,7 @@ if ($_GLOBALS['message']) {
             <header class="major">
               <h2>题目管理</h2>       
             </header>
-          </div>
-        </div>
+         
 
             <form name="prepqn" action="prepqn.php" method="post">
                 <div class="menubar">
@@ -252,7 +251,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                 /*                                 * ************************ Step 3 - Case 1 ************************ */
                                 //Form for the new Question
                         ?>
-                                <table cellpadding="20" cellspacing="20" style="text-align:left;" >
+                                <table style="text-align:left;" >
                                     <tr>
                                         <td>问题</td>
                                         <td><textarea name="question" cols="40" rows="3"  ></textarea></td>
@@ -306,7 +305,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
 
                                     //editing components
 ?>
-                                    <table cellpadding="20" cellspacing="20" style="text-align:left;margin-left:15em;" >
+                                    <table cellpadding="20" cellspacing="20" style="text-align:left;" >
                                         <tr>
                                             <td>问题<input type="hidden" name="qnid" value="<?php echo $r['qnid']; ?>" /></td>
                                             <td><textarea name="question" cols="40" rows="3"  ><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea></td>
@@ -394,12 +393,11 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                             }
                         }
 ?>
-
+ </div>
+        </div>
                 </div>
             </form>
-            <div id="footer">
-                <p style="font-size:70%;color:#ffffff;"> Developed By-<b>翻江倒海</b></p>
-            </div>
+             <?php require '../footer.php' ?>
         </div>
     </body>
 </html>
