@@ -108,9 +108,7 @@ else if(isset($_REQUEST['logout'])) {
                         <tr>
                             <td colspan="2"><h3 style="text-align:center;">Test Summary</h3></td>
                         </tr>
-                        <tr>
-                            <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
-                        </tr>
+                       
                         <tr>
                             <td>测试名称</td>
                             <td><?php echo htmlspecialchars_decode($r['testname'],ENT_QUOTES); ?></td>
@@ -127,13 +125,13 @@ else if(isset($_REQUEST['logout'])) {
                             <td>最大分数</td>
                             <td><?php echo $r['maxmarks']; ?></td>
                         </tr>
-                        <tr><td colspan="2"><hr style="color:#ff0000;border-width:2px;"/></td></tr>
+                       <tr>
+                            <td  colspan="2"><hr style="border-width:0px;"/></td>
+                        </tr>
                         <tr>
                             <td colspan="2"><h3 style="text-align:center;">测试学生</h3></td>
                         </tr>
-                        <tr>
-                            <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
-                        </tr>
+                       
 
                     </table>
                                 <?php

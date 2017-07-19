@@ -366,7 +366,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
 ?>
                                     <table cellpadding="30" cellspacing="10" class="datatable">
                                         <tr>
-                                            <th>&nbsp;</th>
+                                            <th>选择</th>
                                             <th>题目号</th>
                                             <th>题目</th>
                                             <th>正确答案</th>
@@ -380,7 +380,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                             echo "<tr class=\"alt\">";
                                         else
                                             echo "<tr>";
-                                        echo "<td style=\"text-align:center;\"><input type=\"checkbox\" name=\"d$i\" id=\"d$i\" value=\"" . $r['qnid'] . "\" /><label for=\"d$i\"></label></td><td> " . $i
+                                        echo "<td style=\"text-align:center;\"> <input type=\"checkbox\" name=\"d$i\" id=\"d$i\" value=\"" . $r['qnid'] . "\" /> <label for=\"d$i\"></label></td><td> " . $i
                                         . "</td><td>" . htmlspecialchars_decode($r['question'],ENT_QUOTES) . "</td><td>" . htmlspecialchars_decode($r[htmlspecialchars_decode($r['correctanswer'],ENT_QUOTES)],ENT_QUOTES) . "</td><td>" . htmlspecialchars_decode($r['marks'],ENT_QUOTES) . "</td>"
                                         . "<td class=\"tddata\"><a title=\"Edit " . $r['qnid'] . "\"href=\"prepqn.php?edit=" . $r['qnid'] . "\"><img src=\"../images/edit.png\" height=\"30\" width=\"40\" alt=\"Edit\" /></a>"
                                         . "</td></tr>";

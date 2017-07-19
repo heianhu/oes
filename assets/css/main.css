@@ -2640,6 +2640,7 @@
 		
 		margin: 0 0 2em 0;
 		width: 100%;
+		text-align:center;
 	}
 
 		table tbody tr {
@@ -2661,11 +2662,12 @@
 			font-size: 0.9em;
 			font-weight: 300;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align:center;
 		}
 
 		table thead {
 			border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+			text-align:center;
 		}
 
 		table tfoot {

@@ -361,7 +361,7 @@ if (isset($_SESSION['admname'])) {
                                 } else {
                                     $i = 0;
 ?>
-                                    <table cellpadding="30" cellspacing="10" class="datatable">
+                                    <table  cellpadding="30" cellspacing="10" class="datatable">
                                         <tr>
                                             <th>选择</th>
                                             <th>描述</th>
@@ -369,7 +369,7 @@ if (isset($_SESSION['admname'])) {
                                             <th>测试密码</th>
                                             <th>有效期</th>
                                             <th>编辑</th>
-                                            <th style="text-align:center;">管理题目</th>
+                                            <th>管理题目</th>
                                         </tr>
 <?php
                                     while ($r = mysql_fetch_array($result)) {
