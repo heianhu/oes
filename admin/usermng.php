@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
+    $_GLOBALS['message'] = "会话超时.请重新登录";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -58,7 +58,7 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from student where stdid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "太防止意外删除, 系统将不允许传播删除。<br/><b>帮助:</b> 如果仍要删除此用户, 则首先手动删除与此用户关联的所有记录。";
+                    $_GLOBALS['message'] = "太防止意外删除, 系统将不允许传播删除。帮助:如果仍要删除此用户,则首先手动删除与此用户关联的所有记录。";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }

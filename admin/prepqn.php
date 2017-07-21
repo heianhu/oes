@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname']) || !isset($_SESSION['testqn'])) {
-    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
+    $_GLOBALS['message'] = "会话超时.请重新登录";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -105,7 +105,7 @@ else if (isset($_REQUEST['savea'])) {
 
     if (!is_null($r2['q']) && (int) htmlspecialchars_decode($r1['totalquestions'],ENT_QUOTES) == (int) $r2['q']) {
         $cancel = true;
-        $_GLOBALS['message'] = "您已经创建了此测试的所有问题.<br /><b>帮助:</b> 如果您仍想添加一些问题, 请编辑测试设置 (选项: 总计问题)。";
+        $_GLOBALS['message'] = "您已经创建了此测试的所有问题.帮助:如果您仍想添加一些问题, 请编辑测试设置 (选项: 总计问题)。";
     }
     else
         $cancel=false;

@@ -49,7 +49,7 @@ if(isset($_REQUEST['stdsubmit']))
      else
      {
         $success=true;
-        $_GLOBALS['message']="成功创建您的帐户。点击<a href=\"index.php\">此处</a>登录";
+        $_GLOBALS['message']="注册成功,请返回登录";
        // header('Location: index.php');
      }
     }
@@ -93,7 +93,7 @@ if(isset($_REQUEST['stdsubmit']))
           <?php
           if($success)
           {
-                echo "<h2 style=\"text-align:center;\">感谢您注册在线考试系统。<br/><a href=\"index.php\">立即登录</a></h2>";
+                echo "注册成功,请返回登录";
           }
           else
           {
@@ -140,7 +140,7 @@ if(isset($_REQUEST['stdsubmit']))
               </tr>
                        <tr>
                            <td style="text-align:right;"><input type="submit" name="stdsubmit" value="注册" class="subbtn" /></td>
-                  <td><input type="reset" name="reset" value="重置填写" class="subbtn"/></td>
+                  <td><input type="reset" name="reset" value="重置" class="subbtn"/></td>
               </tr>
             </table>
         </form>

@@ -28,7 +28,7 @@ error_reporting(0);
 /********************* Step 1 *****************************/
 session_start();
         if(!isset($_SESSION['admname'])){
-            $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
+            $_GLOBALS['message']="会话超时.请重新登录";
         }
         else if(isset($_REQUEST['logout'])){
            unset($_SESSION['admname']);

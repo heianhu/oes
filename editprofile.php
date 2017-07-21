@@ -28,7 +28,7 @@ session_start();
 include_once 'oesdb.php';
 /************************** Step 1 *************************/
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.点击这里<a href=\"index.php\">重新登录</a>";
+    $_GLOBALS['message']="会话超时.请重新登录";
 }
 else if(isset($_REQUEST['logout']))
 {

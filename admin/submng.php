@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "会话超时.点击这里<a href=\"index.php\">重新登录</a>";
+    $_GLOBALS['message'] = "会话超时.请重新登录";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -52,7 +52,7 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from subject where subid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。<br/><b>帮助:</b> 如果仍要删除此主题, 则首先删除对此主题进行/依赖的测试。";
+                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。帮助:如果仍要删除此主题, 则首先删除对此主题进行/依赖的测试。";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
