@@ -130,7 +130,7 @@ header("Cache-Control: no-cache, must-revalidate");
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>测试导体</title>
+    <title>测试</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
     <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -187,9 +187,7 @@ header("Cache-Control: no-cache, must-revalidate");
             </header>
 
            <form id="testconducter" action="testconducter.php" method="post">
-          <div class="menubar" style="text-align:center;">
-              <h2 >测试导体</h2>
-          </div>
+          
       <div class="page">
           <?php
          
@@ -212,15 +210,15 @@ header("Cache-Control: no-cache, must-revalidate");
              <textarea cols="100" rows="8" name="question" readonly ><?php echo htmlspecialchars_decode($r['question'],ENT_QUOTES); ?></textarea>
               <table border="0" width="100%" class="ntab">
                   <tr><td>&nbsp;</td></tr>
-                  <tr><td >1. <input type="radio" name="answer" id="answera" value="optiona" </input><label for="answera"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiona")==0 ){echo "checked";} ?><?php echo htmlspecialchars_decode($r['optiona'],ENT_QUOTES); ?></label></td></tr>
-                  <tr><td >2. <input type="radio" name="answer" id="answerb" value="optionb" </input><label for="answerb"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionb")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optionb'],ENT_QUOTES); ?></label></td></tr>
-                  <tr><td >3. <input type="radio" name="answer" id="answerc" value="optionc" </input><label for="answerc"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionc")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optionc'],ENT_QUOTES); ?></label></td></tr>
-                  <tr><td >4. <input type="radio" name="answer" id="answerd" value="optiond"</input><label for="answerd"> <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiond")==0 ){echo "checked";} ?> <?php echo htmlspecialchars_decode($r['optiond'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >1. <input type="radio" name="answer" id="answera" value="optiona" </input><label for="answera"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiona")==0 ){echo "已标记";} ?><?php echo htmlspecialchars_decode($r['optiona'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >2. <input type="radio" name="answer" id="answerb" value="optionb" </input><label for="answerb"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionb")==0 ){echo "已标记";} ?> <?php echo htmlspecialchars_decode($r['optionb'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >3. <input type="radio" name="answer" id="answerc" value="optionc" </input><label for="answerc"><?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optionc")==0 ){echo "已标记";} ?> <?php echo htmlspecialchars_decode($r['optionc'],ENT_QUOTES); ?></label></td></tr>
+                  <tr><td >4. <input type="radio" name="answer" id="answerd" value="optiond"</input><label for="answerd"> <?php if((strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"review")==0 ||strcmp(htmlspecialchars_decode($r1['answered'],ENT_QUOTES),"answered")==0)&& strcmp(htmlspecialchars_decode($r1['stdanswer'],ENT_QUOTES),"optiond")==0 ){echo "已标记";} ?> <?php echo htmlspecialchars_decode($r['optiond'],ENT_QUOTES); ?></label></td></tr>
                   <tr><td>&nbsp;</td></tr>
                   <tr>
-                      <th ><h4><input type="submit" name="<?php if($final==true){ echo "viewsummary" ;}else{ echo "next";} ?>" value="<?php if($final==true){ echo "View Summary" ;}else{ echo "Next";} ?>" class="subbtn"/></h4></th>
-                      <th ><h4><input type="submit" name="previous" value="Previous" class="subbtn"/></h4></th>
-                      <th ><h4><input type="submit" name="summary" value="Summary" class="subbtn" /></h4></th>
+                      <th ><h4><input type="submit" name="<?php if($final==true){ echo "viewsummary" ;}else{ echo "next";} ?>" value="<?php if($final==true){ echo "查看总结" ;}else{ echo "下一个";} ?>" class="subbtn"/></h4></th>
+                      <th ><h4><input type="submit" name="previous" value="上一个" class="subbtn"/></h4></th>
+                      <th ><h4><input type="submit" name="summary" value="总结" class="subbtn" /></h4></th>
                   </tr>
                   
               </table>

@@ -113,7 +113,7 @@ else if(isset($_REQUEST['logout'])) {
                                 ?>
                     <table cellpadding="20" cellspacing="30" border="0" style="background:#ffffff url(../images/page.gif);text-align:left;line-height:20px;">
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">Test Summary</h3></td>
+                            <td colspan="2"><h3 style=";text-align:center;">Test Summary</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -136,7 +136,7 @@ else if(isset($_REQUEST['logout'])) {
                         </tr>
                         <tr><td colspan="2"><hr style="color:#ff0000;border-width:2px;"/></td></tr>
                         <tr>
-                            <td colspan="2"><h3 style="color:#0000cc;text-align:center;">Attempted Students</h3></td>
+                            <td colspan="2"><h3 style=";text-align:center;">Attempted Students</h3></td>
                         </tr>
                         <tr>
                             <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
@@ -148,7 +148,7 @@ else if(isset($_REQUEST['logout'])) {
                                 $result1=executeQuery("select s.stdname,s.emailid,IFNULL((select sum(q.marks) from studentquestion as sq,question as q where q.qnid=sq.qnid and sq.testid=".$_REQUEST['testid']." and sq.stdid=st.stdid and sq.stdanswer=q.correctanswer),0) as om from studenttest as st, student as s where s.stdid=st.stdid and st.testid=".$_REQUEST['testid'].";" );
 
                                 if(mysql_num_rows($result1)==0) {
-                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">No Students Yet Attempted this Test!</h3>";
+                                    echo"<h3 style=\";text-align:center;\">No Students Yet Attempted this Test!</h3>";
                                 }
                                 else {
                                     ?>
@@ -179,7 +179,7 @@ else if(isset($_REQUEST['logout'])) {
                                     }
                                 }
                                 else {
-                                    echo"<h3 style=\"color:#0000cc;text-align:center;\">Something went wrong. Please logout and Try again.</h3>";
+                                    echo"<h3 style=\";text-align:center;\">Something went wrong. Please logout and Try again.</h3>";
                                 }
                                 ?>
                     </table>
@@ -194,7 +194,7 @@ else if(isset($_REQUEST['logout'])) {
                         // Defualt Mode: Displays the Existing Test Results, If any.
                             $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(t.testfrom,'%d %M %Y') as fromdate,DATE_FORMAT(t.testto,'%d %M %Y %H:%i:%S') as todate,sub.subname,(select count(stdid) from studenttest where testid=t.testid) as attemptedstudents from test as t, subject as sub where sub.subid=t.subid and t.tcid=".$_SESSION['tcid'].";");
                             if(mysql_num_rows($result)==0) {
-                                echo "<h3 style=\"color:#0000cc;text-align:center;\">No Tests Yet...!</h3>";
+                                echo "<h3 style=\";text-align:center;\">No Tests Yet...!</h3>";
                             }
                             else {
                                 $i=0;

@@ -361,7 +361,7 @@ if (isset($_SESSION['tcname'])) {
                                 // Defualt Mode: Displays the Existing Test/s, If any.
                                 $result = executeQuery("select t.testid,t.testname,t.testdesc,s.subname,DECODE(t.testcode,'oespass') as tcode,DATE_FORMAT(t.testfrom,'%d-%M-%Y') as testfrom,DATE_FORMAT(t.testto,'%d-%M-%Y %H:%i:%s %p') as testto from test as t,subject as s where t.subid=s.subid and t.tcid=" . $_SESSION['tcid'] . " order by t.testdate desc,t.testtime desc;");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo "<h3 style=\"color:#0000cc;text-align:center;\">No Tests Yet..!</h3>";
+                                    echo "<h3 style=\";text-align:center;\">No Tests Yet..!</h3>";
                                 } else {
                                     $i = 0;
 ?>

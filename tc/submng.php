@@ -226,7 +226,7 @@ if (isset($_SESSION['tcname'])) {
                 // Defualt Mode: Displays the Existing Subject/s, If any.
                 $result = executeQuery("select * from subject where tcid=" . $_SESSION['tcid'] . " order by subid;");
                 if (mysql_num_rows($result) == 0) {
-                    echo "<h3 style=\"color:#0000cc;text-align:center;\">No Subjets Yet..!</h3>";
+                    echo "<h3 style=\";text-align:center;\">No Subjets Yet..!</h3>";
                 } else {
                     $i = 0;
 ?>

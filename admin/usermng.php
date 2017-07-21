@@ -270,7 +270,7 @@ if (isset($_SESSION['admname'])) {
                 // Defualt Mode: Displays the Existing Users, If any.
                 $result = executeQuery("select * from student order by stdid;");
                 if (mysql_num_rows($result) == 0) {
-                    echo "<h3 style=\"color:#0000cc;text-align:center;\">尚未用户..!</h3>";
+                    echo "<h3 style=\";text-align:center;\">尚未用户..!</h3>";
                 } else {
                     $i = 0;
 ?>

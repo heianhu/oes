@@ -51,22 +51,14 @@ if(isset($_SESSION['starttime']))
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>summary</h2>       
+              <h2>总结</h2>       
             </header>
            <form id="editprofile" action="editprofile.php" method="post">
           <div class="menubar">
-               <ul id="menu">
-                        <?php if(isset($_SESSION['stdname'])) {
-                         // Navigations
-                         ?>
-                        <li><input type="submit" value="LogOut" name="logout" class="subbtn" title="Log Out"/></li>
-                        <li><input type="submit" value="DashBoard" name="dashboard" class="subbtn" title="Dash Board"/></li>
-                       
-
-               </ul>
+            
           </div>
       <div class="page">
-          <h3 style="button small fittext-align:center;">你的结果已成功提交！查看结果<b><a href="viewresult.php">点此</a></b> </h3>
+          <h3 style="button small fittext-align:center;">你的结果已成功提交！查看结果<b><a class="action small" href="viewresult.php">点此</a></b> </h3>
           <?php
                         }
           ?>

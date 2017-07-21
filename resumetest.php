@@ -89,8 +89,7 @@ if($_GLOBALS['message']) {
             <header class="major">
               <h2>恢复测试</h2>       
             </header>
-          </div>
-        </div>
+        
 
             <form id="summary" action="resumetest.php" method="post">
                 <div class="menubar">
@@ -184,6 +183,8 @@ if($_GLOBALS['message']) {
                 </div>
 
             </form>
+              </div>
+        </div>
            <?php require 'footer.php' ?>
 
   </body>
