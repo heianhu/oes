@@ -54,7 +54,6 @@ Step 2: IF POST array has some varibles then, perform authentication.
   <head>
     <title>管理员登录</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="../oes.css"/>
   </head>
   <body>
 <!--

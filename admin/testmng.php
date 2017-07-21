@@ -142,7 +142,6 @@ else if (isset($_REQUEST['manageqn'])) {
     <head>
         <title>管理测试</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="../oes.css"/>
         <link rel="stylesheet" type="text/css" media="all" href="../calendar/jsDatePick.css" />
         <script type="text/javascript" src="../calendar/jsDatePick.full.1.1.js"></script>
         <script type="text/javascript">

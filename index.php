@@ -61,7 +61,6 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
   <head>
     <title>在线考试系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="oes.css"/>
 	<script type="text/javascript" src="validate.js" ></script>
   </head>
   

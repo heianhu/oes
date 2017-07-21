@@ -14,9 +14,6 @@ session_start();
     <head>
         <title>主面板</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-       <!--  <link href="exam.css" rel="stylesheet" type="text/css">
-        <link href="base.css" rel="stylesheet" type="text/css"> -->
-        <link rel="stylesheet" type="text/css" href="oes.css"/>
     </head>
     <body>
         <?php

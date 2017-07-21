@@ -57,7 +57,6 @@ else if(isset($_REQUEST['logout'])) {
     <head>
         <title>OES-管理结果</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="../oes.css"/>
 
     </head>
     <body>

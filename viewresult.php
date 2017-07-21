@@ -48,8 +48,6 @@ else if(isset($_REQUEST['logout'])) {
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
         <meta name="ROBOTS" content="NONE"/>
-
-        <link rel="stylesheet" type="text/css" href="oes.css"/>
         <script type="text/javascript" src="validate.js" ></script>
     </head>
     <body >
