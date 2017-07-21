@@ -84,10 +84,6 @@
                      }
 */
                 }
-                function showerror(ele)
-                {
-					alert(ele);
-                }
   /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
