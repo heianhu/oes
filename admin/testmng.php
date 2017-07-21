@@ -174,7 +174,7 @@ if ($_GLOBALS['message']) {
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>准备题目</h2>       
+              <h2>测试管理</h2>       
             </header>
        
 

@@ -88,13 +88,12 @@ if(isset($_REQUEST['stdsubmit']))
 
             
               <?php endif; ?>
-             
           </div>
       <div class="page">
           <?php
           if($success)
           {
-                echo "<h2 style=\"text-align:center;color:#0000ff;\">感谢您注册在线考试系统。<br/><a href=\"index.php\">立即登录</a></h2>";
+                echo "<h2 style=\"text-align:center;\">感谢您注册在线考试系统。<br/><a href=\"index.php\">立即登录</a></h2>";
           }
           else
           {
@@ -140,8 +139,8 @@ if(isset($_REQUEST['stdsubmit']))
                   <td><input type="text" name="pin" value="" size="16" onkeyup="isnum(this)" /></td>
               </tr>
                        <tr>
-                           <td style="text-align:right;"><input type="submit" name="stdsubmit" value="Register" class="subbtn" /></td>
-                  <td><input type="reset" name="reset" value="Reset" class="subbtn"/></td>
+                           <td style="text-align:right;"><input type="submit" name="stdsubmit" value="注册" class="subbtn" /></td>
+                  <td><input type="reset" name="reset" value="重置填写" class="subbtn"/></td>
               </tr>
             </table>
         </form>
