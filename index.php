@@ -44,13 +44,13 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
                   header('Location: stdwelcome.php');
               }else
           {
-              $_GLOBALS['message']="检查您的用户名和密码。";
+              $_GLOBALS['message']="用户名或密码错误.";
           }
 
           }
           else
           {
-              $_GLOBALS['message']="检查您的用户名和密码。";
+              $_GLOBALS['message']="用户名或密码错误.";
           }
           closedb();
       }
@@ -59,7 +59,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title>在线考试系统</title>
+    <title>网络测试系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<script type="text/javascript" src="validate.js" ></script>
   </head>
@@ -81,7 +81,7 @@ Step 2: Display the Html page to receive Authentication Parameters(Name & Passwo
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>用户登陆</h2>       
+              <h2>用户登录</h2>       
             </header>
         
 

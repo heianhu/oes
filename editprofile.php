@@ -28,7 +28,7 @@ session_start();
 include_once 'oesdb.php';
 /************************** Step 1 *************************/
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -49,7 +49,7 @@ else if(isset($_REQUEST['dashboard'])){
                 //updating the modified values
     if(empty($_REQUEST['cname'])||empty ($_REQUEST['password'])||empty ($_REQUEST['email']))
     {
-         $_GLOBALS['message']="一些必填字段为空。因此没有更新";
+         $_GLOBALS['message']="一些必填字段为空,请返回检查.";
     }
     else
     {
@@ -121,7 +121,7 @@ else if(isset($_REQUEST['dashboard'])){
                   <td><input type="text" name="email" value="<?php echo htmlspecialchars_decode($r['emailid'],ENT_QUOTES); ?>" size="16" /></td>
               </tr>
                        <tr>
-                  <td>联系号码</td>
+                  <td>联系电话</td>
                   <td><input type="text" name="contactno" value="<?php echo htmlspecialchars_decode($r['contactno'],ENT_QUOTES); ?>" size="16" onkeyup="isnum(this)"/></td>
               </tr>
 

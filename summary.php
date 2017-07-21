@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout']))
 {

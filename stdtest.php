@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if (!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message'] = "会话超时.请重新登录";
+    $_GLOBALS['message'] = "会话超时,请重新登录.";
 } else if (isset($_SESSION['starttime'])) {
     header('Location: testconducter.php');
 } else if (isset($_REQUEST['logout'])) {
@@ -22,14 +22,14 @@ if (!isset($_SESSION['stdname'])) {
         if ($r = mysql_fetch_array($result)) {
             if (strcmp(htmlspecialchars_decode($r['tcode'], ENT_QUOTES), htmlspecialchars($_REQUEST['tc'], ENT_QUOTES)) != 0) {
                 $display = true;
-                $_GLOBALS['message'] = "您输入了无效的测试代码。请再次尝试。";
+                $_GLOBALS['message'] = "您输入了无效的测试代码,请再次尝试.";
             } else {
                 //now prepare parameters for Test Conducter and redirect to it.
                 //first step: Insert the questions into table
 
                 $result = executeQuery("select * from question where testid=" . $_SESSION['testid'] . " order by qnid;");
                 if (mysql_num_rows($result) == 0) {
-                    $_GLOBALS['message'] = "无法选择测试题。请过一段时间尝试！";
+                    $_GLOBALS['message'] = "无法选择测试题,请过一段时间重试.";
                 } else {
                   //  executeQuery("COMMIT");
                     $error = false;
@@ -44,7 +44,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                     else {
                         while ($r = mysql_fetch_array($result)) {
                             if (!executeQuery("insert into studentquestion values(" . $_SESSION['stdid'] . "," . $_SESSION['testid'] . "," . $r['qnid'] . ",'unanswered',NULL)")) {
-                                $_GLOBALS['message'] = "在为你准备问题时失败。请再试一次。";
+                                $_GLOBALS['message'] = "获取信息失败,请再试一次.";
                                 $error = true;
                             }
                         }
@@ -67,11 +67,11 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
             }
         } else {
             $display = true;
-            $_GLOBALS['message'] = "您输入了无效的测试代码。请再次尝试。";
+            $_GLOBALS['message'] = "您输入了无效的测试代码,请再次尝试.";
         }
     } else {
         $display = true;
-        $_GLOBALS['message'] = "先输入测试码！";
+        $_GLOBALS['message'] = "请先输入测试代码!";
     }
 } else if (isset($_REQUEST['testcode'])) {
     //test code preparation
@@ -82,7 +82,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
 } else if (isset($_REQUEST['savem'])) {
     //updating the modified values
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
-        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
+        $_GLOBALS['message'] = "一些必填字段为空,请返回检查.";
     } else {
         $query = "update student set stdname='" . htmlspecialchars($_REQUEST['cname'], ENT_QUOTES) . "', stdpassword=ENCODE('" . htmlspecialchars($_REQUEST['password'], ENT_QUOTES) . "','oespass'),emailid='" . htmlspecialchars($_REQUEST['email'], ENT_QUOTES) . "',contactno='" . htmlspecialchars($_REQUEST['contactno'], ENT_QUOTES) . "',address='" . htmlspecialchars($_REQUEST['address'], ENT_QUOTES) . "',city='" . htmlspecialchars($_REQUEST['city'], ENT_QUOTES) . "',pincode='" . htmlspecialchars($_REQUEST['pin'], ENT_QUOTES) . "' where stdid='" . $_REQUEST['student'] . "';";
         if (!@executeQuery($query))
@@ -162,7 +162,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                             } else {
                                 $result = executeQuery("select t.*,s.subname from test as t, subject as s where s.subid=t.subid and CURRENT_TIMESTAMP<t.testto and t.totalquestions=(select count(*) from question where testid=t.testid) and NOT EXISTS(select stdid,testid from studenttest where testid=t.testid and stdid=" . $_SESSION['stdid'] . ");");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo"<h3 style=\"text-align:center;\">抱歉...！ 目前为止，你没有提供任何测试。</h3>";
+                                    echo"<h3 style=\"text-align:center;\">没有可用的测试.</h3>";
                                 } else {
                                     //editing components
                     ?>

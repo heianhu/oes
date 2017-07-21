@@ -30,7 +30,7 @@ session_start();
 include_once '../oesdb.php';
 /************************** Step 1 *************************/
 if(!isset($_SESSION['admname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout'])) {
     /************************** Step 2 - Case 1 *************************/
@@ -55,7 +55,7 @@ else if(isset($_REQUEST['logout'])) {
 ?>
 <html>
     <head>
-        <title>OES-管理结果</title>
+        <title>管理结果</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     </head>
@@ -73,7 +73,7 @@ else if(isset($_REQUEST['logout'])) {
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>测试结果管理</h2>       
+              <h2>测试结果</h2>       
             </header>
         
             <form name="rsltmng" action="rsltmng.php" method="post">
@@ -138,13 +138,13 @@ else if(isset($_REQUEST['logout'])) {
                                 $result1=executeQuery("select s.stdname,s.emailid,IFNULL((select sum(q.marks) from studentquestion as sq,question as q where q.qnid=sq.qnid and sq.testid=".$_REQUEST['testid']." and sq.stdid=st.stdid and sq.stdanswer=q.correctanswer),0) as om from studenttest as st, student as s where s.stdid=st.stdid and st.testid=".$_REQUEST['testid'].";" );
 
                                 if(mysql_num_rows($result1)==0) {
-                                    echo"<h3 style=\"text-align:center;\">该测试还没有学生参加!</h3>";
+                                    echo"<h3 style=\"text-align:center;\">该测试还没有人员参加.</h3>";
                                 }
                                 else {
                                     ?>
                     <table cellpadding="30" cellspacing="10" class="datatable">
                         <tr>
-                            <th>学生姓名</th>
+                            <th>姓名</th>
                             <th>邮箱</th>
                             <th>得分</th>
                             <th>得分率(%)</th>
@@ -184,7 +184,7 @@ else if(isset($_REQUEST['logout'])) {
                         // Defualt Mode: Displays the Test Results.
                             $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(t.testfrom,'%d %M %Y') as fromdate,DATE_FORMAT(t.testto,'%d %M %Y %H:%i:%S') as todate,sub.subname,(select count(stdid) from studenttest where testid=t.testid) as attemptedstudents from test as t, subject as sub where sub.subid=t.subid;");
                             if(mysql_num_rows($result)==0) {
-                                echo "<h3 style=\"text-align:center;\">尚未测试...!</h3>";
+                                echo "<h3 style=\"text-align:center;\">尚未测试.</h3>";
                             }
                             else {
                                 $i=0;
@@ -195,7 +195,7 @@ else if(isset($_REQUEST['logout'])) {
                             <th>测试名称</th>
                             <th>有效性</th>
                             <th>主题名称</th>
-                            <th>测试学生</th>
+                            <th>参加人员</th>
                             <th>详细</th>
                         </tr>
             <?php

@@ -4,7 +4,7 @@ session_start();
 include_once 'oesdb.php';
 $final=false;
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -49,7 +49,7 @@ else if(isset($_REQUEST['dashboard'])){
                 if(!executeQuery($query))
                 {
                 // to do
-                $_GLOBALS['message']="您以前的答案没有更新，请再次回答。";
+                $_GLOBALS['message']="您以前的答案没有更新,请再次回答.";
                 }
                 closedb();
             }
@@ -105,7 +105,7 @@ else if(isset($_REQUEST['dashboard'])){
                 if(!executeQuery($query))
                 {
                 // to do
-                $_GLOBALS['message']="您以前的答案没有更新，请再次回答。";
+                $_GLOBALS['message']="您以前的答案没有更新,请再次回答.";
                 }
                 closedb();
             }
@@ -152,7 +152,7 @@ header("Cache-Control: no-cache, must-revalidate");
                     }
                     else
                     {
-                        $_GLOBALS['message']="请再次尝试";
+                        $_GLOBALS['message']="请再次尝试.";
                     }
                     closedb();
                 }

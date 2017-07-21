@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout']))
 {
@@ -58,7 +58,7 @@ if(isset($_SESSION['starttime']))
             
           </div>
       <div class="page">
-          <h3 style="button small fittext-align:center;">你的结果已成功提交！查看结果<b><a class="action small" href="viewresult.php">点此</a></b> </h3>
+          <h3 style="button small fittext-align:center;">你的结果已成功提交!点此<b><a class="action small" href="viewresult.php">查看结果</a></b> </h3>
           <?php
                         }
           ?>

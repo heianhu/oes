@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "会话超时.请重新登录";
+    $_GLOBALS['message'] = "会话超时,请重新登录.";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -52,7 +52,7 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from subject where subid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。帮助:如果仍要删除此主题, 则首先删除对此主题进行/依赖的测试。";
+                    $_GLOBALS['message'] = "已拒绝操作.";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
@@ -61,19 +61,19 @@ if (!isset($_SESSION['admname'])) {
     if (!isset($_GLOBALS['message']) && $hasvar == true)
         $_GLOBALS['message'] = "已成功删除选定的主题";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "首先选择要删除的主题";
+        $_GLOBALS['message'] = "请选择要删除的主题";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     if (empty($_REQUEST['subname']) || empty($_REQUEST['subdesc'])) {
-        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
+        $_GLOBALS['message'] = "一些必填字段为空,请返回检查.";
     } else {
         $query = "update subject set subname='" . htmlspecialchars($_REQUEST['subname'], ENT_QUOTES) . "', subdesc='" . htmlspecialchars($_REQUEST['subdesc'], ENT_QUOTES) . "'where subid=" . $_REQUEST['subject'] . ";";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "主题信息已成功更新。";
+            $_GLOBALS['message'] = "主题信息已成功更新.";
     }
     closedb();
 }
@@ -90,14 +90,14 @@ else if (isset($_REQUEST['savea'])) {
     $result = executeQuery("select subname as sub from subject where subname='" . htmlspecialchars($_REQUEST['subname'], ENT_QUOTES) . "';");
     // $_GLOBALS['message']=$newstd;
     if (empty($_REQUEST['subname']) || empty($_REQUEST['subdesc'])) {
-        $_GLOBALS['message'] = "某些必填项为空";
+        $_GLOBALS['message'] = "某些必填项为空.";
     } else if (mysql_num_rows($result) > 0) {
-        $_GLOBALS['message'] = "对不起，科目已存在.";
+        $_GLOBALS['message'] = "对不起,该科目已存在.";
     } else {
         $query = "insert into subject values($newstd,'" . htmlspecialchars($_REQUEST['subname'], ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['subdesc'], ENT_QUOTES) . "',NULL)";
         if (!@executeQuery($query)) {
             if (mysql_errno () == 1062) //duplicate value
-                $_GLOBALS['message'] = "所给科目名违反限制, 请尝试其他科目名.";
+                $_GLOBALS['message'] = "所给科目名违反限制,请尝试其他科目名.";
             else
                 $_GLOBALS['message'] = mysql_error();
         }
@@ -110,7 +110,7 @@ else if (isset($_REQUEST['savea'])) {
 
 <html>
     <head>
-        <title>OES-管理主题</title>
+        <title>管理主题</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <script type="text/javascript" src="../validate.js" ></script>
     </head>
@@ -226,7 +226,7 @@ if (isset($_SESSION['admname'])) {
                 // Defualt Mode: Displays the Existing Subject/s, If any.
                 $result = executeQuery("select * from subject order by subid;");
                 if (mysql_num_rows($result) == 0) {
-                    echo "<h3 style=\"text-align:center;\">还没有主题..!</h3>";
+                    echo "<h3 style=\"text-align:center;\">还没有主题.</h3>";
                 } else {
                     $i = 0;
 ?>

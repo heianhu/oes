@@ -33,7 +33,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "会话超时.请重新登录";
+    $_GLOBALS['message'] = "会话超时,请重新登录.";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -53,16 +53,16 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from test where testid=$variable")) {
                 if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "防止意外删除，系统不允许传播删除。帮助:如果仍要删除此测试,则首先删除与之关联的问题。";
+                    $_GLOBALS['message'] = "已拒绝操作.";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
         }
     }
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "已成功删除选定的测试";
+        $_GLOBALS['message'] = "已成功删除选定的测试.";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "首先选择要删除的测试。";
+        $_GLOBALS['message'] = "请选择要删除的测试.";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
@@ -71,15 +71,15 @@ if (!isset($_SESSION['admname'])) {
     $totime = $_REQUEST['testto'] . " 23:59:59";
     $_GLOBALS['message'] = strtotime($totime) . "  " . strtotime($fromtime) . "  " . time();
     if (strtotime($fromtime) > strtotime($totime) || strtotime($totime) < time())
-        $_GLOBALS['message'] = "测试的开始日期小于结束日期或测试的最后日期小于今天的日期。<br/>因此没有更新";
+        $_GLOBALS['message'] = "日期非法,请返回检查.";
     else if (empty($_REQUEST['testname']) || empty($_REQUEST['testdesc']) || empty($_REQUEST['totalqn']) || empty($_REQUEST['duration']) || empty($_REQUEST['testfrom']) || empty($_REQUEST['testto']) || empty($_REQUEST['testcode'])) {
-        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
+        $_GLOBALS['message'] = "一些必填字段为空,请返回检查";
     } else {
         $query = "update test set testname='" . htmlspecialchars($_REQUEST['testname'], ENT_QUOTES) . "',testdesc='" . htmlspecialchars($_REQUEST['testdesc'], ENT_QUOTES) . "',subid=" . htmlspecialchars($_REQUEST['subject'], ENT_QUOTES) . ",testfrom='" . $fromtime . "',testto='" . $totime . "',duration=" . htmlspecialchars($_REQUEST['duration'], ENT_QUOTES) . ",totalquestions=" . htmlspecialchars($_REQUEST['totalqn'], ENT_QUOTES) . ",testcode=ENCODE('" . htmlspecialchars($_REQUEST['testcode'], ENT_QUOTES) . "','oespass') where testid=" . $_REQUEST['testid'] . ";";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "测试信息已成功更新。";
+            $_GLOBALS['message'] = "测试信息已成功更新.";
     }
     closedb();
 }
@@ -91,10 +91,10 @@ else if (isset($_REQUEST['savea'])) {
     $totime = $_REQUEST['testto'] . " 23:59:59";
     if (strtotime($fromtime) > strtotime($totime) || strtotime($fromtime) < (time() - 3600)) {
         $noerror = false;
-        $_GLOBALS['message'] = "测试的开始日期要么小于今天的日期, 要么大于测试的最后日期。";
+        $_GLOBALS['message'] = "测试的开始日期必须晚于今天的日期且早于测试的最后日期.";
     } else if ((strtotime($totime) - strtotime($fromtime)) <= 3600 * 24) {
         $noerror = true;
-        $_GLOBALS['message'] = "注意:测试是有效的 " . date(DATE_RFC850, strtotime($totime));
+        $_GLOBALS['message'] = "注意:测试是有效的." . date(DATE_RFC850, strtotime($totime));
     }
     //$_GLOBALS['message']="time".date_format($first, DATE_ATOM)."<br/>time ".date_format($second, DATE_ATOM);
 
@@ -113,12 +113,12 @@ else if (isset($_REQUEST['savea'])) {
         $query = "insert into test values($newstd,'" . htmlspecialchars($_REQUEST['testname'], ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['testdesc'], ENT_QUOTES) . "',(select curDate()),(select curTime())," . htmlspecialchars($_REQUEST['subject'], ENT_QUOTES) . ",'" . $fromtime . "','" . $totime . "'," . htmlspecialchars($_REQUEST['duration'], ENT_QUOTES) . "," . htmlspecialchars($_REQUEST['totalqn'], ENT_QUOTES) . ",0,ENCODE('" . htmlspecialchars($_REQUEST['testcode'], ENT_QUOTES) . "','oespass'),NULL)";
         if (!@executeQuery($query)) {
             if (mysql_errno () == 1062) //duplicate value
-                $_GLOBALS['message'] = "给定测试名称违反一些限制，请尝试使用其他名称。";
+                $_GLOBALS['message'] = "给定测试名称违反一些限制,请尝试使用其他名称.";
             else
                 $_GLOBALS['message'] = mysql_error();
         }
         else
-            $_GLOBALS['message'] = $_GLOBALS['message'] . "已成功创建新测试。";
+            $_GLOBALS['message'] = $_GLOBALS['message'] . "已成功创建新测试.";
     }
     closedb();
 }
@@ -218,7 +218,7 @@ if (isset($_SESSION['admname'])) {
 if (isset($_SESSION['admname'])) {
     // To display the Help Message
     // if (isset($_REQUEST['forpq']))
-    //     echo "<div class=\"pmsg\" style=\"text-align:center\"> 你想管理哪写题目？<br/><b>帮助:</b>点击问题按钮来管理各自测试的题目</div>";
+    //     echo "<div class=\"pmsg\" style=\"text-align:center\"> 你想管理哪些题目？<br/><b>帮助:</b>点击问题按钮来管理各自测试的题目</div>";
     if (isset($_REQUEST['add'])) {
         /*         * ************************ Step 3 - Case 1 ************************ */
         //Form for the new Test

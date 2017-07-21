@@ -39,7 +39,7 @@ if(isset($_REQUEST['stdsubmit']))
          $_GLOBALS['message']="一些必填字段为空";
     }else if(mysql_num_rows($result)>0)
     {
-        $_GLOBALS['message']="对不起，用户名不可用，请尝试其他名称。";
+        $_GLOBALS['message']="对不起,用户名已被占用,请尝试其他名称.";
     }
     else
     {
@@ -122,7 +122,7 @@ if(isset($_REQUEST['stdsubmit']))
                   <td><input type="text" name="email" value="" size="16" /></td>
               </tr>
                        <tr>
-                  <td>联系号码</td>
+                  <td>联系电话</td>
                   <td><input type="text" name="contactno" value="" size="16" onkeyup="isnum(this)"/></td>
               </tr>
 

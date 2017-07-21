@@ -34,14 +34,14 @@ Step 2: IF POST array has some varibles then, perform authentication.
                   header('Location: admwelcome.php');
               }else
           {
-             $_GLOBALS['message']="检查您的用户名和密码。";
+             $_GLOBALS['message']="检查您的用户名和密码.";
                  
           }
 
           }
           else
           {
-              $_GLOBALS['message']="检查您的用户名和密码。";
+              $_GLOBALS['message']="检查您的用户名和密码.";
               
           }
           closedb();
@@ -74,7 +74,7 @@ Step 2: IF POST array has some varibles then, perform authentication.
         <div id="main" class="wrapper style1">
           <div class="container">
             <header class="major">
-              <h2>管理员登陆</h2>       
+              <h2>管理员登录</h2>       
             </header>
         
 

@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname'])) {
-    $_GLOBALS['message'] = "会话超时.请重新登录";
+    $_GLOBALS['message'] = "会话超时,请重新登录.";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -54,7 +54,7 @@ if (!isset($_SESSION['admname'])) {
 
             if (!@executeQuery("delete from testconductor where tcid=$variable")){
                if (mysql_errno () == 1451) //Children are dependent value
-                    $_GLOBALS['message'] = "若要防止意外删除，系统将不允许传播删除。帮助:如果仍要删除此用户, 则首先手动删除与此用户关联的所有记录。";
+                    $_GLOBALS['message'] = "已拒绝操作.";
                 else
                     $_GLOBALS['message'] = mysql_errno();
             }
@@ -62,21 +62,21 @@ if (!isset($_SESSION['admname'])) {
         }
     }
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "选定的测试导体成功删除";
+        $_GLOBALS['message'] = "选定的测试成功删除";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "首先选择要删除的测试导体。";
+        $_GLOBALS['message'] = "首先选择要删除的测试。";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
-        $_GLOBALS['message'] = "一些必填字段为空。因此没有更新";
+        $_GLOBALS['message'] = "一些必填字段为空,请返回检查.";
     } else {
         $query = "update testconductor set tcname='" . htmlspecialchars($_REQUEST['cname'],ENT_QUOTES) . "', tcpassword=ENCODE('" . htmlspecialchars($_REQUEST['password'],ENT_QUOTES) . "','oespass'),emailid='" . htmlspecialchars($_REQUEST['email'],ENT_QUOTES) . "',contactno='" . htmlspecialchars($_REQUEST['contactno'],ENT_QUOTES) . "',address='" .htmlspecialchars($_REQUEST['address'],ENT_QUOTES) . "',city='" . htmlspecialchars($_REQUEST['city'],ENT_QUOTES) . "',pincode='" . htmlspecialchars($_REQUEST['pin'],ENT_QUOTES) . "' where tcid='" . $_REQUEST['tc'] . "';";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "测试导体信息已成功更新。";
+            $_GLOBALS['message'] = "测试信息已成功更新.";
     }
     closedb();
 }
@@ -96,24 +96,24 @@ else if (isset($_REQUEST['savea'])) {
     if (empty($_REQUEST['cname']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])) {
         $_GLOBALS['message'] = "某些必填字段为空";
     } else if (mysql_num_rows($result) > 0) {
-        $_GLOBALS['message'] = "对不起, 用户已存在。";
+        $_GLOBALS['message'] = "对不起,用户已存在.";
     } else {
         $query = "insert into testconductor values($newstd,'" . htmlspecialchars($_REQUEST['cname'],ENT_QUOTES) . "',ENCODE('" . htmlspecialchars($_REQUEST['password'],ENT_QUOTES) . "','oespass'),'" . htmlspecialchars($_REQUEST['email'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['contactno'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['address'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['city'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['pin'],ENT_QUOTES) . "')";
         if (!@executeQuery($query)) {
             if(mysql_errno ()==1062) //duplicate value
-            $_GLOBALS['message'] = "给定测试导体名称违反一些限制，请尝试使用其他名称。";
+            $_GLOBALS['message'] = "给定测试名称不合法,请尝试使用其他名称.";
             else
             $_GLOBALS['message'] = mysql_error();
         }
         else
-            $_GLOBALS['message'] = "已成功创建新的测试导体。";
+            $_GLOBALS['message'] = "已成功创建新的测试.";
     }
     closedb();
 }
 ?>
 <html>
     <head>
-        <title>OES-管理测试导体</title>
+        <title>管理测试员</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <script type="text/javascript" src="../validate.js" ></script>
     </head>

@@ -5,7 +5,7 @@ error_reporting(0);
 session_start();
 include_once 'oesdb.php';
 if(!isset($_SESSION['stdname'])) {
-    $_GLOBALS['message']="会话超时.请重新登录";
+    $_GLOBALS['message']="会话超时,请重新登录.";
 }
 else if(isset($_REQUEST['logout'])) {
     //Log out and redirect login page
@@ -33,7 +33,7 @@ else if(isset($_REQUEST['logout'])) {
                         if($r=mysql_fetch_array($result)) {
                             if(strcmp(htmlspecialchars_decode($r['tcode'],ENT_QUOTES),htmlspecialchars($_REQUEST['tc'],ENT_QUOTES))!=0) {
                                 $display=true;
-                                $_GLOBALS['message']="您输入了无效的测试代码。请再次尝试。";
+                                $_GLOBALS['message']="您输入了无效的测试代码,请再次尝试.";
                             }
                             else {
                             //now prepare parameters for Test Conducter and redirect to it.
@@ -53,12 +53,12 @@ else if(isset($_REQUEST['logout'])) {
                         }
                         else {
                             $display=true;
-                            $_GLOBALS['message']="您输入了无效的测试代码。请再次尝试。";
+                            $_GLOBALS['message']="您输入了无效的测试代码,请再次尝试.";
                         }
                     }
                     else {
                         $display=true;
-                        $_GLOBALS['message']="先输入测试码！";
+                        $_GLOBALS['message']="请先输入测试代码!";
                     }
                 }
 
@@ -121,7 +121,7 @@ if($_GLOBALS['message']) {
                         <tr>
                             <td>输入测试码</td>
                             <td><input type="text" tabindex="1" name="tc" value="" size="16" /></td>
-                            <td><div class="help"><b>注意:</b><br/>快速输入测试码<br/>后按继续按钮以使用剩余时间</div></td>
+                            <td><div class="help"><b>注意:</b><br/>快速输入测试码<br/>后按继续按钮以继续测试.</div></td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -137,7 +137,7 @@ if($_GLOBALS['message']) {
 
         $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(st.starttime,'%d %M %Y %H:%i:%s') as startt,sub.subname as sname,TIMEDIFF(st.endtime,CURRENT_TIMESTAMP) as remainingtime from subject as sub,studenttest as st,test as t where sub.subid=t.subid and t.testid=st.testid and st.stdid=".$_SESSION['stdid']." and st.status='inprogress' order by st.starttime desc;");
         if(mysql_num_rows($result)==0) {
-            echo"<h3 style=\"text-align:center;\">没有可恢复的未完成测试，请重试..!</h3>";
+            echo"<h3 style=\"text-align:center;\">没有可恢复的未完成测试.</h3>";
         }
         else {
         //editing components

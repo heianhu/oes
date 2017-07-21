@@ -31,7 +31,7 @@ session_start();
 include_once '../oesdb.php';
 /* * ************************ Step 1 ************************ */
 if (!isset($_SESSION['admname']) || !isset($_SESSION['testqn'])) {
-    $_GLOBALS['message'] = "会话超时.请重新登录";
+    $_GLOBALS['message'] = "会话超时,请重新登录.";
 } else if (isset($_REQUEST['logout'])) {
     /*     * ************************ Step 2 - Case 1 ************************ */
     //Log out and redirect login page
@@ -65,24 +65,24 @@ if (!isset($_SESSION['admname']) || !isset($_SESSION['testqn'])) {
 
     //
     if (!isset($_GLOBALS['message']) && $hasvar == true)
-        $_GLOBALS['message'] = "已成功删除所选问题";
+        $_GLOBALS['message'] = "已成功删除所选问题.";
     else if (!$hasvar) {
-        $_GLOBALS['message'] = "首先选择要删除的问题。";
+        $_GLOBALS['message'] = "请选择要删除的问题.";
     }
 } else if (isset($_REQUEST['savem'])) {
     /*     * ************************ Step 2 - Case 4 ************************ */
     //updating the modified values
     // $_GLOBALS['message']=$newstd;
     if (strcmp($_REQUEST['correctans'], "<Choose the Correct Answer>") == 0 || empty($_REQUEST['question']) || empty($_REQUEST['optiona']) || empty($_REQUEST['optionb']) || empty($_REQUEST['optionc']) || empty($_REQUEST['optiond']) || empty($_REQUEST['marks'])) {
-        $_GLOBALS['message'] = "某些必填字段为空";
+        $_GLOBALS['message'] = "某些必填字段为空.";
     } else if (strcasecmp($_REQUEST['optiona'], $_REQUEST['optionb']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionc'], $_REQUEST['optiond']) == 0) {
-        $_GLOBALS['message'] = "两个或多个选项表示相同的答案。再次验证";
+        $_GLOBALS['message'] = "两个或多个选项表示相同的答案,请再次验证.";
     } else {
         $query = "update question set question='" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "',optiona='" . htmlspecialchars($_REQUEST['optiona'],ENT_QUOTES) . "',optionb='" . htmlspecialchars($_REQUEST['optionb'],ENT_QUOTES) . "',optionc='" . htmlspecialchars($_REQUEST['optionc'],ENT_QUOTES) . "',optiond='" . htmlspecialchars($_REQUEST['optiond'],ENT_QUOTES) . "',correctanswer='" . htmlspecialchars($_REQUEST['correctans'],ENT_QUOTES) . "',marks=" . htmlspecialchars($_REQUEST['marks'],ENT_QUOTES) . " where testid=" . $_SESSION['testqn'] . " and qnid=" . $_REQUEST['qnid'] . " ;";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "问题已成功更新。";
+            $_GLOBALS['message'] = "问题已成功更新.";
     }
     closedb();
 }
@@ -105,7 +105,7 @@ else if (isset($_REQUEST['savea'])) {
 
     if (!is_null($r2['q']) && (int) htmlspecialchars_decode($r1['totalquestions'],ENT_QUOTES) == (int) $r2['q']) {
         $cancel = true;
-        $_GLOBALS['message'] = "您已经创建了此测试的所有问题.帮助:如果您仍想添加一些问题, 请编辑测试设置 (选项: 总计问题)。";
+        $_GLOBALS['message'] = "测试创建完毕.";
     }
     else
         $cancel=false;
@@ -113,27 +113,27 @@ else if (isset($_REQUEST['savea'])) {
     $result = executeQuery("select * from question where testid=" . $_SESSION['testqn'] . " and question='" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "';");
     if (!$cancel && $r1 = mysql_fetch_array($result)) {
         $cancel = true;
-        $_GLOBALS['message'] = "对不起, 您试图为相同的测试输入相同的问题";
+        $_GLOBALS['message'] = "存在重复的问题.";
     } else if (!$cancel)
         $cancel = false;
     // $_GLOBALS['message']=$newstd;
     if (strcmp($_REQUEST['correctans'], "<Choose the Correct Answer>") == 0 || empty($_REQUEST['question']) || empty($_REQUEST['optiona']) || empty($_REQUEST['optionb']) || empty($_REQUEST['optionc']) || empty($_REQUEST['optiond']) || empty($_REQUEST['marks'])) {
-        $_GLOBALS['message'] = "某些必填字段为空";
+        $_GLOBALS['message'] = "某些必填字段为空.";
     } else if (strcasecmp($_REQUEST['optiona'], $_REQUEST['optionb']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optiona'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optionc']) == 0 || strcasecmp($_REQUEST['optionb'], $_REQUEST['optiond']) == 0 || strcasecmp($_REQUEST['optionc'], $_REQUEST['optiond']) == 0) {
-        $_GLOBALS['message'] = "两个或多个选项表示相同的答案。再次验证";
+        $_GLOBALS['message'] = "两个或多个选项表示相同的答案,请再次验证.";
     } else if (!$cancel) {
         $query = "insert into question values(" . $_SESSION['testqn'] . ",$newstd,'" . htmlspecialchars($_REQUEST['question'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optiona'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optionb'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optionc'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['optiond'],ENT_QUOTES) . "','" . htmlspecialchars($_REQUEST['correctans'],ENT_QUOTES) . "'," . htmlspecialchars($_REQUEST['marks'],ENT_QUOTES) . ")";
         if (!@executeQuery($query))
             $_GLOBALS['message'] = mysql_error();
         else
-            $_GLOBALS['message'] = "已成功创建新问题。";
+            $_GLOBALS['message'] = "已成功创建问题.";
     }
     closedb();
 }
 ?>
 <html>
     <head>
-        <title>OES-管理问题</title>
+        <title>管理问题</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
         <script type="text/javascript" src="../validate.js" ></script>
@@ -239,9 +239,9 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                         $result = executeQuery("select totalquestions from test where testid=" . $_SESSION['testqn'] . ";");
                         $r2 = mysql_fetch_array($result);
                         if ((int) $r1['q'] == (int) htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES))
-                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 所有问题都是为此测试创建的。</div>";
+                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 所有问题都是为此测试创建的.</div>";
                         else
-                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 仍然需要创建" . (htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES) - $r1['q']) . " 问题. 在这之后, 应试者就可以参加考试了。</div>";
+                            echo "<div class=\"pmsg\"> 测试名称: " . $_SESSION['testname'] . "<br/>状态: 仍然需要创建." . (htmlspecialchars_decode($r2['totalquestions'],ENT_QUOTES) - $r1['q']) . " 问题. 在这之后, 应试者就可以参加考试了。</div>";
                         ?>
                         <?php
                         if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
@@ -359,7 +359,7 @@ if (isset($_SESSION['admname']) && isset($_SESSION['testqn'])) {
                                 // Defualt Mode: Displays the Existing Question/s, If any.
                                 $result = executeQuery("select * from question where testid=" . $_SESSION['testqn'] . " order by qnid;");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo "<h3 style=\"text-align:center;\">目前还没有问题..!</h3>";
+                                    echo "<h3 style=\"text-align:center;\">目前还没有问题.</h3>";
                                 } else {
                                     $i = 0;
 ?>
