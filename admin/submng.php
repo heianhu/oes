@@ -226,7 +226,7 @@ if (isset($_SESSION['admname'])) {
                 // Defualt Mode: Displays the Existing Subject/s, If any.
                 $result = executeQuery("select * from subject order by subid;");
                 if (mysql_num_rows($result) == 0) {
-                    echo "<h3 style=\"color:#0000cc;text-align:center;\">还没有主题..!</h3>";
+                    echo "<h3 style=\"text-align:center;\">还没有主题..!</h3>";
                 } else {
                     $i = 0;
 ?>

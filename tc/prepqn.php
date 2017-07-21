@@ -324,7 +324,7 @@ else
                             // Defualt Mode: Displays the Existing Question/s, If any.
                             $result = executeQuery("select * from question where testid=" . $_SESSION['testqn'] . " order by qnid;");
                             if (mysql_num_rows($result) == 0) {
-                                echo "<h3 style=\"color:#0000cc;text-align:center;\">No Questions Yet..!</h3>";
+                                echo "<h3 style=\";text-align:center;\">No Questions Yet..!</h3>";
                             } else {
                                 $i = 0;
 ?>

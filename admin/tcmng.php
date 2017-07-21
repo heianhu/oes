@@ -266,7 +266,7 @@ if ($_GLOBALS['message']) {
                         // Defualt Mode: Displays the Existing Test Conductors, If any.
                         $result = executeQuery("select * from testconductor order by tcid;");
                         if (mysql_num_rows($result) == 0) {
-                            echo "<h3 style=\"color:#0000cc;text-align:center;\">还没有测试员..!</h3>";
+                            echo "<h3 style=\";text-align:center;\">还没有测试员..!</h3>";
                         } else {
                             $i = 0;
 ?>

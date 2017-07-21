@@ -149,12 +149,12 @@ else if(isset($_REQUEST['dashboard'])){
                                     {
                                         echo "<td>".htmlspecialchars_decode($r['answered'],ENT_QUOTES)."</td>";
                                     }
-                                    echo"<td><input type=\"submit\" value=\"Change ".$r['qnid']."\" name=\"change\" class=\"ssubbtn\" /></td></tr>";
+                                    echo"<td><input type=\"submit\" value=\"修改 ".$r['qnid']."\" name=\"change\" class=\"ssubbtn\" /></td></tr>";
                                 }
 
                                 ?>
               <tr>
-                  <td colspan="3" style="text-align:center;"><input type="submit" name="finalsubmit" value="Final Submit" class="subbtn"/></td>
+                  <td colspan="3" style="text-align:center;"><input type="submit" name="finalsubmit" value="最终提交" class="subbtn"/></td>
               </tr>
                     </table>
                             <?php

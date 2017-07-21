@@ -205,9 +205,9 @@ if (isset($_SESSION['admname'])) {
 <?php
     } else {  //navigation for Default
 ?>
-                        <li><input type="submit" value="添加" name="add" class="button small fit" title="Add"/></li>
+                        <li><input type="submit" value="添加测试" name="add" class="button small fit" title="Add"/></li>
 
-                        <li><input type="submit" value="删除" name="delete" class="button small fit" title="Delete"/></li>
+                        <li><input type="submit" value="删除选中" name="delete" class="button small fit" title="Delete"/></li>
 <?php }
 } ?>
                     </ul>
@@ -217,8 +217,8 @@ if (isset($_SESSION['admname'])) {
 <?php
 if (isset($_SESSION['admname'])) {
     // To display the Help Message
-    if (isset($_REQUEST['forpq']))
-        echo "<div class=\"pmsg\" style=\"text-align:center\"> 你想管理哪写题目？<br/><b>帮助:</b>点击问题按钮来管理各自测试的题目</div>";
+    // if (isset($_REQUEST['forpq']))
+    //     echo "<div class=\"pmsg\" style=\"text-align:center\"> 你想管理哪写题目？<br/><b>帮助:</b>点击问题按钮来管理各自测试的题目</div>";
     if (isset($_REQUEST['add'])) {
         /*         * ************************ Step 3 - Case 1 ************************ */
         //Form for the new Test
@@ -268,7 +268,8 @@ if (isset($_SESSION['admname'])) {
                         <tr>
                             <td>结束于 </td>
                             <td><input id="testto" type="text" name="testto" value="" size="16" readonly /></td>
-                        </tr>
+                        </tr> 
+                    
 
                         <tr>
                             <td>测试密码</td>
@@ -356,7 +357,7 @@ if (isset($_SESSION['admname'])) {
                                 // Defualt Mode: Displays the Existing Test/s, If any.
                                 $result = executeQuery("select t.testid,t.testname,t.testdesc,s.subname,DECODE(t.testcode,'oespass') as tcode,DATE_FORMAT(t.testfrom,'%d-%M-%Y') as testfrom,DATE_FORMAT(t.testto,'%d-%M-%Y %H:%i:%s %p') as testto from test as t,subject as s where t.subid=s.subid order by t.testdate desc,t.testtime desc;");
                                 if (mysql_num_rows($result) == 0) {
-                                    echo "<h3 style=\"color:#0000cc;text-align:center;\">尚未测试..!</h3>";
+                                    echo "<h3 style=\";text-align:center;\">尚未测试..!</h3>";
                                 } else {
                                     $i = 0;
 ?>
@@ -367,7 +368,7 @@ if (isset($_SESSION['admname'])) {
                                             <th>科目名</th>
                                             <th>测试密码</th>
                                             <th>有效期</th>
-                                            <th>编辑</th>
+                                            <th>编辑测试</th>
                                             <th>管理题目</th>
                                         </tr>
 <?php
@@ -384,7 +385,7 @@ if (isset($_SESSION['admname'])) {
                                     }
 ?>
                                 </table>
-<?php
+                    <?php
                                 }
                                 closedb();
                             }
@@ -394,9 +395,10 @@ if (isset($_SESSION['admname'])) {
                 </div>
             </form>
                </div>
-        </div>
+      <!--   </div> -->
+      
             <?php require '../footer.php' ?>
 
-        </div>
     </body>
 </html>
+

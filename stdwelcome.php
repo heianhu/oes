@@ -22,34 +22,25 @@ session_start();
             echo "<script type='text/javascript'>alert('".$_GLOBALS['message']."');</script>";
         }
         ?>
-        <div id="container">
-           <div class="header">
+             <?php  require 'header.php'; ?>  
+             
+        <div id="main" class="wrapper style1">
+            <div id="container">
            
-
+                    <header class="major">
+                  <h2>欢迎使用网络测试系统</h2>       
+                   </header>
+                    <div class="page">
+                   <h3 style="text-align:center;">点击上方功能开始使用</h3> 
+                    </div>
             </div>
-            <div class="menubar">
-
-                <form name="stdwelcome" action="stdwelcome.php" method="post">
-                    <ul id="menu">
-                        <?php if(isset($_SESSION['stdname'])){ ?>
-                    
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <?php } ?>
-                    </ul>
-                </form>
-            </div>
-            <div class="stdpage">
-                <?php if(isset($_SESSION['stdname'])){ 
-
-                require 'header.php';
             
-              
-            }php ?>
-
-            </div>
+            
+          
 
 
-      </div>
+
+         </div>
             <?php    require 'footer.php'; ?>
 
   </body>

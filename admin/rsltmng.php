@@ -105,7 +105,7 @@ else if(isset($_REQUEST['logout'])) {
                                 ?>
                     <table cellpadding="20" cellspacing="30" border="0" >
                         <tr>
-                            <td colspan="2"><h3 style="text-align:center;">Test Summary</h3></td>
+                            <td colspan="2"><h3 style="text-align:center;">测试摘要</h3></td>
                         </tr>
                        
                         <tr>
@@ -146,8 +146,8 @@ else if(isset($_REQUEST['logout'])) {
                         <tr>
                             <th>学生姓名</th>
                             <th>邮箱</th>
-                            <th>获得的分数</th>
-                            <th>结果(%)</th>
+                            <th>得分</th>
+                            <th>得分率(%)</th>
 
                         </tr>
                                         <?php

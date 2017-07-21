@@ -39,7 +39,7 @@ session_start();
 
 <html>
     <head>
-        <title>OES-DashBoard</title>
+        <title>后台管理</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
@@ -51,28 +51,16 @@ session_start();
         ?>
 
         <?php require 'admheader.php' ?>
+        <div id="main" class="wrapper style1">
 
         <div id="container">
-            
-            <div class="menubar">
-
-                <form name="admwelcome" action="admwelcome.php" method="post">
-                    <ul id="menu">
-                        <?php if(isset($_SESSION['admname'])){ ?>
-                        <li><input type="submit" value="登出" name="logout" class="subbtn" title="Log Out"/></li>
-                        <?php } ?>
-                    </ul>
-                </form>
-            </div>
-            <div class="admpage">
-                <?php if(isset($_SESSION['admname'])){ ?>
-
-        
-               
-                <?php }?>
-
-            </div>
-
+           
+        <header class="major">
+                  <h2>网络测试系统后台管理</h2>       
+                   </header>
+                    <div class="page">
+                   <h3 style="text-align:center;">点击上方功能开始使用</h3> 
+                    </div>
 
           <?php require '../footer.php' ?>
 

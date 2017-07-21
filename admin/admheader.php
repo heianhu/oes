@@ -34,12 +34,8 @@
                     <nav id="nav">
                         <ul>
                             <li><a id="exam" href="submng.php" target="_self" class="current">管理科目</a></li>
-                            <li>
-                                <a id="question" href="rsltmng.php" target="_self">管理测试结果</a>
-                                
-                            </li>
-                            <li><a id="user" href="testmng.php?forpq=true.php" target="_self">准备题目</a></li>
                             <li><a id="upgrade" href="testmng.php" target="_self">管理测试</a></li>
+                            <li><a id="question" href="rsltmng.php" target="_self">管理测试结果</a> </li>
                             <!-- <li><a href="admwelcome.php" class="button special">登出</a></li> -->
                             <li>
                             <form name="admwelcome" action="admwelcome.php" method="post" >

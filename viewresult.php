@@ -59,8 +59,7 @@ else if(isset($_REQUEST['logout'])) {
         ?>
             <?php    require 'header.php' ?>
 
-        <!-- Main -->
-        <div id="main" class="wrapper style1">
+       
           <div class="container">
             <header class="major">
               <h2>查看结果</h2>       
@@ -105,9 +104,7 @@ else if(isset($_REQUEST['logout'])) {
                         <tr>
                             <td colspan="2"><h3 style="button small fittext-align:center;">测试总结</h3></td>
                         </tr>
-                        <tr>
-                            <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
-                        </tr>
+                        
                         <tr>
                             <td>学生名</td>
                             <td><?php echo htmlspecialchars_decode($r['stdname'],ENT_QUOTES); ?></td>
@@ -137,18 +134,16 @@ else if(isset($_REQUEST['logout'])) {
                             <td><?php echo $r['om']; ?></td>
                         </tr>
                         <tr>
-                            <td>正确率</td>
+                            <td>得分率</td>
                             <td><?php echo (($r['om']/$r['tm'])*100)." %"; ?></td>
                         </tr>
                         <tr>
-                            <td colspan="2" ><hr style="color:#ff0000;border-width:2px;"/></td>
+                            <td colspan="2" ><hr style="border-width:0px;"/></td>
                         </tr>
                          <tr>
                             <td colspan="2"><h3 style="button small fittext-align:center;">测试详情</h3></td>
                         </tr>
-                        <tr>
-                            <td colspan="2" ><hr style="color:#ff0000;border-width:4px;"/></td>
-                        </tr>
+                       
                     </table>
                                 <?php
 
