@@ -136,7 +136,7 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                     <div class="page">
                     <?php
                             if (isset($_REQUEST['testcode'])) {
-                                echo "<div class=\"pmsg\" style=\"text-align:center;\">What is the Code of " . $_SESSION['testname'] . " ? </div>";
+                                echo "<div class=\"pmsg\" style=\"text-align:center;\">你还记得 " . $_SESSION['testname'] . " 的测试密码么? </div>";
                             } else {
                                 echo "<div class=\"pmsg\" style=\"text-align:center;\">提供的测试</div>";
                             }
@@ -146,13 +146,13 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                     ?>
                                 <table cellpadding="30" cellspacing="10">
                                     <tr>
-                                        <td>Enter Test Code</td>
+                                        <td>输入测试密码</td>
                                         <td><input type="text" tabindex="1" name="tc" value="" size="16" /></td>
-                                        <td><div class="help"><b>Note:</b><br/>Once you press start test<br/>button timer will be started</div></td>
+                                        <td><div class="help"><b>注意:</b><br/>一旦点击开始<br/>则会开始计时</div></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
-                                            <input type="submit" tabindex="3" value="Start Test" name="starttest" class="subbtn" />
+                                            <input type="submit" tabindex="3" value="开始测试" name="starttest" class="subbtn" />
                                         </td>
                                     </tr>
                                 </table>
@@ -168,12 +168,12 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                     ?>
                                     <table cellpadding="30" cellspacing="10" class="datatable">
                                         <tr>
-                                            <th>Test Name</th>
-                                            <th>Test Description</th>
-                                            <th>Subject Name</th>
-                                            <th>Duration</th>
-                                            <th>Total Questions</th>
-                                            <th>Take Test</th>
+                                            <th>测试名称</th>
+                                            <th>测试描述</th>
+                                            <th>科目名</th>
+                                            <th>测试时间(分钟)</th>
+                                            <th>总题数</th>
+                                            <th>开始测试</th>
                                         </tr>
                         <?php
                                     while ($r = mysql_fetch_array($result)) {
