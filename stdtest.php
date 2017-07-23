@@ -145,10 +145,10 @@ DO update studenttest set correctlyanswered=(select count(*) from studentquestio
                             if (isset($_REQUEST['testcode']) || $display == true) {
                     ?>
                                 <table cellpadding="30" cellspacing="10">
-                                    <tr>
-                                        <td>输入测试密码</td>
-                                        <td><input type="text" tabindex="1" name="tc" value="" size="16" /></td>
-                                        <td><div class="help"><b>注意:</b><br/>一旦点击开始<br/>则会开始计时</div></td>
+                                    <tr >
+                                        <td style=" vertical-align:middle;">输入测试密码</td>
+                                        <td style=" vertical-align:middle;"><input type="text" tabindex="1" name="tc" value="" size="16" /></td>
+                                        <td><b>注意:</b><br/>一旦点击开始<br/>则会开始计时</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
