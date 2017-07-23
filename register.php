@@ -93,7 +93,7 @@ if(isset($_REQUEST['stdsubmit']))
           <?php
           if($success)
           {
-                echo "注册成功,请返回登录";
+                echo "<h2 style=\"text-align:center;\">注册成功<br/><a href=\"index.php\">立即登录</a></h2>";
           }
           else
           {
