@@ -1,11 +1,4 @@
 
-//***********************************************//
-//* Online Examination System                   *//
-//*---------------------------------------------*//
-//* License: GNU General Public License V.3     *//
-//* Author: Manjunath Baddi                     *//
-//* Title:  Count Down Timer                    *//
-//***********************************************//
 
 
 function countDown() {

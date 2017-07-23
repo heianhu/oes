@@ -1,7 +1,4 @@
-/*
-	Copyright 2009 Itamar Arjuan
-	jsDatePick is distributed under the terms of the GNU General Public License.
-*/
+
 
 g_arrayOfUsedJsDatePickCalsGlobalNumbers = new Array();
 g_currentDateObject = new Object();

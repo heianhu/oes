@@ -1,10 +1,4 @@
-//***********************************************//
-//* Online Examination System                   *//
-//*---------------------------------------------*//
-//* License: GNU General Public License V.3     *//
-//* Author: Manjunath Baddi                     *//
-//* Title: Validation                           *//
-//***********************************************//
+
                 function isalphanum(ele)
                 {
                     var r=/\W$/i;
@@ -84,9 +78,5 @@
                      }
 */
                 }
-  /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+  
 

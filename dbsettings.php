@@ -1,15 +1,7 @@
 
 <?php
 
-/*
-***************************************************
-*** Online Examination System                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Database Settings                    ***
-***************************************************
-*/
+
 
 //This is the name of your server where the MySQL database is running
 $dbserver="localhost";

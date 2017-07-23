@@ -2,15 +2,7 @@
 
 <?php
 
-/*
-***************************************************
-*** Online Examination System                   ***
-***---------------------------------------------***
-*** License: GNU General Public License V.3     ***
-*** Author: Manjunath Baddi                     ***
-*** Title: Database Library Functions           ***
-***************************************************
-*/
+
 
 include_once 'dbsettings.php';
 
